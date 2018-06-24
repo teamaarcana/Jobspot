@@ -1,0 +1,1 @@
+<%= f.select(:skill_id, Skill.all.collect {|u| [u.name, u.id]}, :prompt => 'Select') %><br>

@@ -23,7 +23,7 @@ class SeekerProfilesController < ApplicationController
   # GET /seeker_profiles/1/edit
   def edit
   #   @seeker_profile.seeker_educations.build
-    # @seeker_profile.seeker_category.build
+  #  @seeker_profile.seeker_category.seeker_skills.build
 
   end
 
@@ -76,11 +76,10 @@ class SeekerProfilesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def seeker_profile_params
-      binding.pry
       params.require(:seeker_profile).permit(:first_name,:last_name,:prefered_loc,:sex,:phone_no,
                                                                 :experience,:salary,:dob,:nationality,:perm_address,:job_status,:certificate,
                                                                 :temp_address,:description,:seeker_id, seeker_educations_attributes: SeekerEducation.attribute_names.map(&:to_sym),
-                                                                seeker_category_attributes: SeekerCategory.attribute_names.map(&:to_sym))
+                                                                seeker_category_attributes: [:category_id,:seeker_profile_id,seeker_skills_attributes:  SeekerSkill.attribute_names.map(&:to_sym)])
     end
 
     def is_owner?

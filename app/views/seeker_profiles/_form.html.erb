@@ -50,10 +50,14 @@
                 <h1>Category</h1>
 
                     <%= f.fields_for :seeker_category do |ff| %>
-                    <% binding.pry %>
-                    <%= render 'shared/category', f: ff %>
+                      <%= render 'shared/category', f: ff %>
+                      <h1>Skills</h1>
+                        <%= f.fields_for :seeker_skills do |ff| %>
+                          <%= render 'shared/skills', f: ff %>
 
+                        <% end %>
                     <% end %>
+
 
                 <div class="form-group">
                   <%= f.label :prefered_loc %><br />
