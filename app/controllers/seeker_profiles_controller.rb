@@ -1,6 +1,6 @@
 class SeekerProfilesController < ApplicationController
   before_action :set_seeker_profile, only: [:show, :edit, :update, :destroy]
-  #before_action :is_owner?, only: [:edit, :update, :destroy, :index]
+  before_action :is_owner?, only: [:edit, :update, :destroy, :index]
 
   # GET /seeker_profiles
   # GET /seeker_profiles.json
@@ -83,6 +83,6 @@ class SeekerProfilesController < ApplicationController
     end
 
     def is_owner?
-     redirect_to root_path if Seeker.find(params[:id]).user != current_user
+     redirect_to root_path if SeekerProfile.find(params[:id]).seeker != current_seeker
     end
 end
