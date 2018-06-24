@@ -17,12 +17,14 @@ class SeekerProfilesController < ApplicationController
   def new
     @seeker_profile = SeekerProfile.new
     @seeker_profile.seeker_educations.build
-
+    @seeker_profile.seeker_category.build
   end
 
   # GET /seeker_profiles/1/edit
   def edit
-    @seeker_profile.seeker_educations.build
+  #   @seeker_profile.seeker_educations.build
+    # @seeker_profile.seeker_category.build
+
   end
 
   # POST /seeker_profiles
@@ -44,6 +46,7 @@ class SeekerProfilesController < ApplicationController
   # PATCH/PUT /seeker_profiles/1
   # PATCH/PUT /seeker_profiles/1.json
   def update
+    binding.pry
     respond_to do |format|
       if @seeker_profile.update(seeker_profile_params)
         format.html { redirect_to root_path, notice: 'Seeker profile was successfully updated.' }
@@ -73,9 +76,11 @@ class SeekerProfilesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def seeker_profile_params
+      binding.pry
       params.require(:seeker_profile).permit(:first_name,:last_name,:prefered_loc,:sex,:phone_no,
                                                                 :experience,:salary,:dob,:nationality,:perm_address,:job_status,:certificate,
-                                                                :temp_address,:description,:seeker_id, seeker_educations_attributes: SeekerEducation.attribute_names.map(&:to_sym))
+                                                                :temp_address,:description,:seeker_id, seeker_educations_attributes: SeekerEducation.attribute_names.map(&:to_sym),
+                                                                seeker_category_attributes: SeekerCategory.attribute_names.map(&:to_sym))
     end
 
     def is_owner?
