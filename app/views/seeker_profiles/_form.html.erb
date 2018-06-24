@@ -5,7 +5,7 @@
       <div class="col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
 
 
-<%= form_with(model: seeker_profile, local: true) do |f| %>
+<%= form_for @seeker_profile do |f| %>
   <% if seeker_profile.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(seeker_profile.errors.count, "error") %> prohibited this seeker_profile from being saved:</h2>
@@ -37,6 +37,15 @@
                   <%= f.label :sex %><br />
                   <%= f.text_field :sex,class:"form-control" %>
                 </div>
+
+
+
+                <h1>Education</h1>
+
+                    <%= f.fields_for :seeker_educations do |ff| %>
+                    <%= render 'shared/educations', f: ff %>
+
+                    <% end %>
 
 
                 <div class="form-group">

@@ -16,17 +16,19 @@ class SeekerProfilesController < ApplicationController
   # GET /seeker_profiles/new
   def new
     @seeker_profile = SeekerProfile.new
+    @seeker_profile.seeker_educations.build
+
   end
 
   # GET /seeker_profiles/1/edit
   def edit
+    @seeker_profile.seeker_educations.build
   end
 
   # POST /seeker_profiles
   # POST /seeker_profiles.json
   def create
     @seeker_profile =  current_seeker.create_seeker_profile(seeker_profile_params)
-
 
     respond_to do |format|
       if @seeker_profile.save
@@ -73,7 +75,7 @@ class SeekerProfilesController < ApplicationController
     def seeker_profile_params
       params.require(:seeker_profile).permit(:first_name,:last_name,:prefered_loc,:sex,:phone_no,
                                                                 :experience,:salary,:dob,:nationality,:perm_address,:job_status,:certificate,
-                                                                :temp_address,:description,:seeker_id)
+                                                                :temp_address,:description,:seeker_id, seeker_educations_attributes: SeekerEducation.attribute_names.map(&:to_sym))
     end
 
     def is_owner?

@@ -1,0 +1,3 @@
+<%= f.select(:education_id, Education.all.collect {|u| [u.eduName, u.id]}, :prompt => 'Select') %>
+<%= f.text_field :colzname %>
+<%= f.text_field :year %><br>
