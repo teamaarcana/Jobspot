@@ -1,0 +1,52 @@
+
+
+
+
+
+
+
+<section class="job-bg user-page">
+  <div class="container">
+    <div class="row text-center">
+      <!-- user-login -->
+      <div class="col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
+        <div class="user-account job-user-account">
+          <h2>Create An Account</h2>
+            <ul class="nav nav-tabs text-center" role="tablist">
+              <li role="presentation" class="active"><%=link_to 'Find A Job',new_seeker_registration_path %></li>
+              <li role="presentation"><%=link_to 'Post A Job',new_recuitor_registration_path %></li>
+            </ul>
+            <h2>Sign up</h2>
+
+            <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+              <%= devise_error_messages! %>
+
+              <div class="field">
+                <%= f.label :email %><br />
+                <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+              </div>
+
+              <div class="field">
+                <%= f.label :password %>
+                <% if @minimum_password_length %>
+                <em>(<%= @minimum_password_length %> characters minimum)</em>
+                <% end %><br />
+                <%= f.password_field :password, autocomplete: "off" %>
+              </div>
+
+              <div class="field">
+                <%= f.label :password_confirmation %><br />
+                <%= f.password_field :password_confirmation, autocomplete: "off" %>
+              </div>
+
+              <div class="actions">
+                <%= f.submit "Sign up" %>
+              </div>
+            <% end %>
+
+            <%= render "devise/shared/links" %>
+        </div>
+      </div><!-- user-login -->
+    </div><!-- row -->
+  </div><!-- container -->
+</section><!-- signup-page -->

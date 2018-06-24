@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Jobspot</title>
+    <%= csrf_meta_tags %>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+      <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <link rel="icon" href="assets/favicon.png">
+
+      <!-- font -->
+  	<link href="https://fonts.googleapis.com/css?family=Baumans" rel="stylesheet">
+  	<link href='https://fonts.googleapis.com/css?family=Signika+Negative:400,300,600,700' rel='stylesheet' type='text/css'>
+    </head>
+
+    <body>
+   	 <div id="wrap">
+    		<%= render 'shared/nav' %>
+
+      	<%= yield %>
+      </div>
+
+      <%= render 'shared/foot' %>
+  </body>
+</html>
