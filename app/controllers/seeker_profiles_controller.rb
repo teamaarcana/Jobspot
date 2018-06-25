@@ -46,7 +46,6 @@ class SeekerProfilesController < ApplicationController
   # PATCH/PUT /seeker_profiles/1
   # PATCH/PUT /seeker_profiles/1.json
   def update
-    binding.pry
     respond_to do |format|
       if @seeker_profile.update(seeker_profile_params)
         format.html { redirect_to root_path, notice: 'Seeker profile was successfully updated.' }
