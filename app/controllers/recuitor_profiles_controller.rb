@@ -1,9 +1,6 @@
 class RecuitorProfilesController < ApplicationController
  before_action :set_recuitor_profile, only: [:show, :edit, :update, :destroy]
- before_action :is_owner?, only: [:edit, :update, :destroy, :index]
-
-  def index
-  end
+ before_action :is_owner?, only: [:edit, :update, :destroy]
 
   def show
   end
@@ -19,6 +16,24 @@ class RecuitorProfilesController < ApplicationController
     else
         render :new, status: :unprocessable_entity
     end
+  end
+
+  def edit
+  end
+
+  def update
+   @recuitor_profile = RecuitorProfile.find(params[:id])
+   @recuitor_profile.update(recuitor_profile_params)
+   if @recuitor_profile.valid?
+      redirect_to root_path
+   else
+      render :edit, status: :unprocessable_entity
+   end
+  end
+  def destroy
+    @recuitor_profile = RecuitorProfile.find(params[:id])
+    @recuitor_profile.destroy
+    redirect_to root_path
   end
 
   private
