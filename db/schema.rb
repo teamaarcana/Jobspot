@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180624125324) do
+ActiveRecord::Schema.define(version: 20180625101505) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,6 +25,18 @@ ActiveRecord::Schema.define(version: 20180624125324) do
     t.string "eduName"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "recuitor_profiles", force: :cascade do |t|
+    t.string "company_name"
+    t.string "contact_no"
+    t.string "address"
+    t.string "pan_no"
+    t.string "description"
+    t.bigint "recuitor_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["recuitor_id"], name: "index_recuitor_profiles_on_recuitor_id"
   end
 
   create_table "recuitors", force: :cascade do |t|

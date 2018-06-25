@@ -19,5 +19,6 @@
 
 /node_modules
 /yarn-error.log
-
+/db/schema.rb
+/config/database.yml
 .byebug_history
