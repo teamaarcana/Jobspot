@@ -5,6 +5,5 @@ class Seeker < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
 
   has_one :seeker_profile
-  
 
 end

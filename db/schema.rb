@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180625101505) do
+ActiveRecord::Schema.define(version: 20180625135004) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,6 +25,20 @@ ActiveRecord::Schema.define(version: 20180625101505) do
     t.string "eduName"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "job_posts", force: :cascade do |t|
+    t.string "job_title"
+    t.string "no_of_vacancies"
+    t.string "experience"
+    t.string "description"
+    t.string "department"
+    t.string "deadline"
+    t.string "job_type"
+    t.bigint "recuitor_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["recuitor_id"], name: "index_job_posts_on_recuitor_id"
   end
 
   create_table "recuitor_profiles", force: :cascade do |t|

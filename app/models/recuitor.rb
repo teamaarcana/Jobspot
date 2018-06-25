@@ -5,4 +5,6 @@ class Recuitor < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
 
   has_one :recuitor_profile
+  has_many :job_posts
+
 end

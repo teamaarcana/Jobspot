@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
+
+
   resources :seeker_profiles
   resources :recuitor_profiles
+  resources :job_posts
 
   devise_for :recuitors, path: 'recuitors',controllers: {registrations: 'recuitors/registrations'}
 
@@ -8,6 +11,6 @@ Rails.application.routes.draw do
 
 
 
-  root 'jobs#index'
+  root 'job_posts#index'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
