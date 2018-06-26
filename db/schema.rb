@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180625135004) do
+ActiveRecord::Schema.define(version: 20180625172214) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,6 +25,24 @@ ActiveRecord::Schema.define(version: 20180625135004) do
     t.string "eduName"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "job_categories", force: :cascade do |t|
+    t.bigint "category_id"
+    t.bigint "job_post_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["category_id"], name: "index_job_categories_on_category_id"
+    t.index ["job_post_id"], name: "index_job_categories_on_job_post_id"
+  end
+
+  create_table "job_educations", force: :cascade do |t|
+    t.bigint "education_id"
+    t.bigint "job_post_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["education_id"], name: "index_job_educations_on_education_id"
+    t.index ["job_post_id"], name: "index_job_educations_on_job_post_id"
   end
 
   create_table "job_posts", force: :cascade do |t|
@@ -51,6 +69,15 @@ ActiveRecord::Schema.define(version: 20180625135004) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["recuitor_id"], name: "index_recuitor_profiles_on_recuitor_id"
+  end
+
+  create_table "recuitor_skills", force: :cascade do |t|
+    t.bigint "skill_id"
+    t.bigint "job_category_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["job_category_id"], name: "index_recuitor_skills_on_job_category_id"
+    t.index ["skill_id"], name: "index_recuitor_skills_on_skill_id"
   end
 
   create_table "recuitors", force: :cascade do |t|

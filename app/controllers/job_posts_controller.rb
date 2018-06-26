@@ -42,7 +42,9 @@ class JobPostsController < ApplicationController
 
   private
   def job_posts_params
-    params.require(:job_post).permit(:job_title,:no_of_vacancies,:experience,:description,:deadline,:recuitor_id,:job_type)
+    params.require(:job_post).permit(:job_title,:no_of_vacancies,:experience,:description,:deadline,:recuitor_id,:job_type,
+  job_educations_attributes: JobEducation.attribute_names.map(&:to_sym),
+  job_category_attributes: [:category_id,:job_post_id,job_skills_attributes:JobSkill.attribute_names.map(&:to_sym)])
   end
 
   def job_posts_profile
