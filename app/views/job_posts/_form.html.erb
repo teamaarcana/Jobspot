@@ -33,6 +33,23 @@
         <%= f.label :experience %><br />
         <%= f.text_field :experience,class:"form-control" %>
       </div>
+      <h1>Education</h1>
+
+          <%= f.fields_for :seeker_educations do |ff| %>
+          <%= render 'shared/educations', f: ff %>
+
+          <% end %>
+
+      <h1>Category</h1>
+
+          <%= f.fields_for :seeker_category do |ff| %>
+            <%= render 'shared/category', f: ff %>
+            <h1>Skills</h1>
+              <%= f.fields_for :seeker_skills do |ff| %>
+                <%= render 'shared/skills', f: ff %>
+
+              <% end %>
+          <% end %>
       <div class="form-group">
         <%= f.label :deadline %><br />
         <%= f.text_field :deadline,class:"form-control" %>

@@ -1,7 +1,7 @@
 class JobPostsController < ApplicationController
   before_action :job_posts_profile, only: [:show, :edit, :update, :destroy]
   before_action :is_owner?, only: [:edit, :update, :destroy]
-
+  before_action :authenticate_recuitor!, only: [:edit, :update, :destroy,:new,:create]
   def index
   end
 
