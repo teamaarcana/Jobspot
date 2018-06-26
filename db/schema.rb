@@ -59,6 +59,15 @@ ActiveRecord::Schema.define(version: 20180625172214) do
     t.index ["recuitor_id"], name: "index_job_posts_on_recuitor_id"
   end
 
+  create_table "job_skills", force: :cascade do |t|
+    t.bigint "skill_id"
+    t.bigint "job_category_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["job_category_id"], name: "index_job_skills_on_job_category_id"
+    t.index ["skill_id"], name: "index_job_skills_on_skill_id"
+  end
+
   create_table "recuitor_profiles", force: :cascade do |t|
     t.string "company_name"
     t.string "contact_no"
@@ -69,15 +78,6 @@ ActiveRecord::Schema.define(version: 20180625172214) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["recuitor_id"], name: "index_recuitor_profiles_on_recuitor_id"
-  end
-
-  create_table "recuitor_skills", force: :cascade do |t|
-    t.bigint "skill_id"
-    t.bigint "job_category_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["job_category_id"], name: "index_recuitor_skills_on_job_category_id"
-    t.index ["skill_id"], name: "index_recuitor_skills_on_skill_id"
   end
 
   create_table "recuitors", force: :cascade do |t|

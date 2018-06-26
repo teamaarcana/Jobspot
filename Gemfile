@@ -15,6 +15,7 @@ gem 'pry'
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'jquery-rails'
 gem "font-awesome-rails"
+gem 'rails-erd', group: :development
 # Use Puma as the app server
 gem 'puma', '~> 3.7'
 # Use SCSS for stylesheets
