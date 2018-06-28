@@ -9,7 +9,7 @@ Rails.application.routes.draw do
 
   devise_for :seekers, path: 'seekers',controllers: {registrations: 'seekers/registrations'}
 
-
+  mount Ckeditor::Engine => '/ckeditor'
 
   root 'job_posts#index'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
