@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180625172214) do
+ActiveRecord::Schema.define(version: 20180628123121) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -56,6 +56,7 @@ ActiveRecord::Schema.define(version: 20180625172214) do
     t.bigint "recuitor_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "location"
     t.index ["recuitor_id"], name: "index_job_posts_on_recuitor_id"
   end
 
@@ -77,6 +78,9 @@ ActiveRecord::Schema.define(version: 20180625172214) do
     t.bigint "recuitor_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "industry"
+    t.string "website"
+    t.string "email"
     t.index ["recuitor_id"], name: "index_recuitor_profiles_on_recuitor_id"
   end
 

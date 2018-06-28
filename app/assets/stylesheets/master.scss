@@ -1,4 +1,4 @@
-$footer-height: 45px;  
+$footer-height: 45px;
 
 /* ==========================================================================
  	Global
@@ -8,7 +8,7 @@ html,
 body {
 	font-family: 'Baumans', cursive;
 	font-weight:400;
-	color:#6f6f6f; 
+	color:#6f6f6f;
 	overflow-x:hidden;
 	-webkit-font-smoothing: antialiased;
 	background-color: #f7f7f7;
@@ -31,7 +31,7 @@ a {
 	color: #00a651;
 }
 
-a, 
+a,
 a:hover,
 a:focus,
 input:focus {
@@ -139,7 +139,7 @@ textarea {
 	background-color: #00a651;
 }
 
-.navbar-default .navbar-toggle:focus, 
+.navbar-default .navbar-toggle:focus,
 .navbar-default .navbar-toggle:hover {
 	background-color: transparent;
 }
@@ -193,15 +193,15 @@ textarea {
 .navbar-default .navbar-nav>li>a:hover,
 .navbar-default .navbar-nav>.active>a:focus,
 .navbar-default .navbar-nav>.active>a:hover,
-.navbar-default .navbar-nav>.active>a, 
-.navbar-default .navbar-nav>.open>a, 
-.navbar-default .navbar-nav>.open>a:focus, 
-.navbar-default .navbar-nav>.open>a:hover, 
-.dropdown-menu>.active>a, 
-.dropdown-menu>.active>a:focus, 
+.navbar-default .navbar-nav>.active>a,
+.navbar-default .navbar-nav>.open>a,
+.navbar-default .navbar-nav>.open>a:focus,
+.navbar-default .navbar-nav>.open>a:hover,
+.dropdown-menu>.active>a,
+.dropdown-menu>.active>a:focus,
 .dropdown-menu>.active>a:hover,
-.navbar-default .navbar-nav .open .dropdown-menu > .active > a, 
-.navbar-default .navbar-nav .open .dropdown-menu > li > a:focus, 
+.navbar-default .navbar-nav .open .dropdown-menu > .active > a,
+.navbar-default .navbar-nav .open .dropdown-menu > li > a:focus,
 .navbar-default .navbar-nav .open .dropdown-menu > li > a:hover,
 .navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus,
  .navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover {
@@ -219,7 +219,7 @@ textarea {
 	font-size:13px;
 }
 
-.dropdown-menu>li>a, 
+.dropdown-menu>li>a,
 .dropdown-menu>li>a:hover {
 	background-color:transparent;
 }
@@ -410,7 +410,7 @@ textarea {
 .category-dropdown {
     background-color: #fff;
     border-right: 1px solid #e6e6e6;
-    border-radius: 5px 0px 0px 5px; 
+    border-radius: 5px 0px 0px 5px;
     min-width: 200px;
     line-height: 45px;
     text-align: left;
@@ -440,8 +440,8 @@ textarea {
 	margin-left: -4px;
 }
 
-.banner-form .form-control, 
-.banner-form .category-dropdown {	
+.banner-form .form-control,
+.banner-form .category-dropdown {
 	display:inline-block;
 	width:30%;
 	height:46px;
@@ -532,4 +532,3 @@ textarea {
 .footer {
   height: 45px;
 }
-

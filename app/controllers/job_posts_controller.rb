@@ -2,10 +2,15 @@ class JobPostsController < ApplicationController
   before_action :job_posts_profile, only: [:show, :edit, :update, :destroy]
   before_action :is_owner?, only: [:edit, :update, :destroy]
   before_action :authenticate_recuitor!, only: [:edit, :update, :destroy,:new,:create]
+
   def index
+    @job_posts = JobPost.order("created_at DESC").all
   end
 
   def show
+    recuitor = Recuitor.find_by_id(@job_post.recuitor_id)
+    @recuitor_profile = recuitor.recuitor_profile
+
   end
 
   def new

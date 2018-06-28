@@ -1,2 +1,76 @@
-<h1>JobPosts#show</h1>
-<p>Find me in app/views/job_posts/show.html.erb</p>
+<section>
+  <div class="container">
+
+    <div class="job-details">
+      <div class="section job-ad-item">
+        <div class="item-info">
+          <div class="item-image-box">
+            <!-- <div class="item-image">
+              <img src="images/job/4.png" alt="Image" class="img-responsive">
+            </div><!-- item-image -->
+          </div>
+
+          <div class="ad-info">
+            <span class="title"><%= @job_post.job_title %></span>
+            <div class="ad-meta">
+              <ul>
+                <li><i class="fa fa-map-marker" aria-hidden="true"></i><%= @job_post.location %></li>
+                <li><i class="fa fa-clock-o" aria-hidden="true"><%= @job_post.job_type %></i></li>
+                <li><i class="fa fa-tags" aria-hidden="true"><%= @job_post.department %></i></li>
+                <li><i class="fa fa-hourglass-start" aria-hidden="true"></i><%= @job_post.deadline %></li>
+              </ul>
+            </div><!-- ad-meta -->
+          </div><!-- ad-info -->
+        </div><!-- item-info -->
+        <div class="social-media">
+          <div class="button">
+            <a href="#" class="btn btn-primary"><i class="fa fa-briefcase" aria-hidden="true"></i>Apply For This Job</a>
+          </div>
+          <!-- <ul class="share-social">
+            <li>Share this ad</li>
+            <li><a href="#"><i class="fa fa-facebook-official" aria-hidden="true"></i></a></li>
+            <li><a href="#"><i class="fa fa-twitter-square" aria-hidden="true"></i></a></li>
+            <li><a href="#"><i class="fa fa-google-plus-square" aria-hidden="true"></i></a></li>
+            <li><a href="#"><i class="fa fa-linkedin-square" aria-hidden="true"></i></a></li>
+            <li><a href="#"><i class="fa fa-pinterest-square" aria-hidden="true"></i></a></li>
+            <li><a href="#"><i class="fa fa-tumblr-square" aria-hidden="true"></i></a></li>
+          </ul> -->
+        </div>
+      </div><!-- job-ad-item -->
+
+      <div class="job-details-info">
+        <div class="row">
+          <div class="col-sm-8">
+            <div class="section job-description">
+              <div class="description-info">
+                <h1>Description</h1>
+                  <p><%= @job_post.description %>
+              </div>
+
+
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="section company-info">
+              <h1>Company Info</h1>
+              <ul>
+                <li>Compnay Name: <a href="#"><%= @recuitor_profile.company_name %></a></li>
+                <li>Address: <%= @recuitor_profile.address %></li>
+                <li>Industry: <a href="#">Technology</a></li>
+                <li>Phone: <%= @recuitor_profile.contact_no %></li>
+                <li>Email:  <%= @recuitor_profile.email %></li>
+                <li>Website: <%= @recuitor_profile.website %></li>
+              </ul>
+              <ul class="share-social">
+                <li><a href="#"><i class="fa fa-facebook-official" aria-hidden="true"></i></a></li>
+                <li><a href="#"><i class="fa fa-twitter-square" aria-hidden="true"></i></a></li>
+                <li><a href="#"><i class="fa fa-google-plus-square" aria-hidden="true"></i></a></li>
+                <li><a href="#"><i class="fa fa-linkedin-square" aria-hidden="true"></i></a></li>
+              </ul>
+            </div>
+          </div>
+        </div><!-- row -->
+      </div><!-- job-details-info -->
+    </div><!-- job-details -->
+  </div>
+</section>
