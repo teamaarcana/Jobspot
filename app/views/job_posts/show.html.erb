@@ -46,15 +46,13 @@
                 <h1>Description</h1>
                   <p><%= raw @job_post.description %>
               </div>
-
-
             </div>
           </div>
           <div class="col-sm-4">
             <div class="section company-info">
               <h1>Company Info</h1>
               <ul>
-                <li>Compnay Name: <a href="#"><%= @recuitor_profile.company_name %></a></li>
+                <li>Compnay Name: <a href="#"><%= link_to @recuitor_profile.company_name, recuitor_profile_path(@recuitor_profile) %></a></li>
                 <li>Address: <%= @recuitor_profile.address %></li>
                 <li>Industry: <a href="#">Technology</a></li>
                 <li>Phone: <%= @recuitor_profile.contact_no %></li>
