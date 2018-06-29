@@ -10,4 +10,5 @@ class JobPost < ApplicationRecord
   has_one :category, :through => :job_category
   accepts_nested_attributes_for :job_category
 
+  has_many :apply_jobs
 end

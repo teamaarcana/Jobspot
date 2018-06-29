@@ -26,9 +26,12 @@
 										</ul>
 									</div><!-- ad-meta -->
 								</div><!-- ad-info -->
-								<div class="button">
-									<a href="#" class="btn btn-primary">Apply Now</a>
-								</div>
+									<div class="button">
+										<%= form_tag(apply_jobs_path,:method => "post") do %>
+											<%= hidden_field_tag "job_post_id", job_post.id %>
+											<%= button_tag "Apply Now", :class => 'btn btn-primary', data: { confirm: 'Do you want to apply for this job' }%>
+											<% end %>
+									</div>	
 							</div><!-- item-info -->
 						</div><!-- ad-item -->
 					<% end %>

@@ -24,7 +24,13 @@
         </div><!-- item-info -->
         <div class="social-media">
           <div class="button">
-            <a href="#" class="btn btn-primary"><i class="fa fa-briefcase" aria-hidden="true"></i>Apply For This Job</a>
+            <div class="button">
+              <%= form_tag(apply_jobs_path,:method => "post") do %>
+                <%= hidden_field_tag "job_post_id", @job_post.id %>
+                <%= button_tag "Apply Now", :class => 'btn btn-primary fa fa-briefcase', data: { confirm: 'Do you want to apply for this job' }%>
+                <% end %>
+            </div>
+            <!-- <a href="#" class="btn btn-primary"><i class="fa fa-briefcase" aria-hidden="true"></i>Apply For This Job</a> -->
           </div>
           <!-- <ul class="share-social">
             <li>Share this ad</li>
