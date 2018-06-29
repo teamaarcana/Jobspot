@@ -9,4 +9,5 @@ class JobPost < ApplicationRecord
   has_one :job_category, dependent: :destroy
   has_one :category, :through => :job_category
   accepts_nested_attributes_for :job_category
+
 end
