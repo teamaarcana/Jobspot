@@ -84,15 +84,26 @@
                   <%= f.label :temp_address %><br />
                   <%= f.text_field :temp_address,class:"form-control" %>
                 </div>
-
-
+                <div class="form-group">
+                  <%= f.label :location,"Birth Place" %><br />
+                  <%= f.text_field :location,class:"form-control" %>
+                </div>
+                <div class="form-group">
+                  <%= f.label :job_status %><br />
+                  <%= f.text_field :job_status,class:"form-control" %>
+                </div>
                 <div class="form-group">
                   <%= f.label :experience %><br />
                   <%= f.text_field :experience,class:"form-control" %>
                 </div>
                 <div class="form-group">
+                  <%= f.label :certificate %><br />
+                  <%= f.cktext_area :certificate, class: 'someclass', ckeditor: { language: 'uk'} %>
+                </div>
+
+                <div class="form-group">
                   <%= f.label :description %><br />
-                  <%= f.text_field :description,class:"form-control" %>
+                  <%= f.cktext_area :description, class: 'someclass', ckeditor: { language: 'uk'} %>
                 </div>
 
 
