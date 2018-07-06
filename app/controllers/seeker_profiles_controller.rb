@@ -16,8 +16,8 @@ class SeekerProfilesController < ApplicationController
   # GET /seeker_profiles/new
   def new
     @seeker_profile = SeekerProfile.new
-    @seeker_profile.seeker_educations.build
-    @seeker_profile.seeker_category.build
+    # @seeker_profile.seeker_educations.build
+    # @seeker_profile.seeker_category.build
   end
 
   # GET /seeker_profiles/1/edit
