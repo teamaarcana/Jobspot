@@ -40,8 +40,6 @@
 									<li><%= link_to 'Edit Profile', edit_seeker_profile_path(current_seeker.id) %></li>
 									<li><%= link_to 'Logout',destroy_seeker_session_path, method: 'delete'  %></li>
 									<li><%= link_to 'Change Password',edit_seeker_registration_path %></li>
-
-
 								</ul>
 							</div>
 					<% elsif recuitor_signed_in? %>
