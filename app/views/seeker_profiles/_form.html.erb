@@ -18,31 +18,46 @@
           <div class="tab-content">
             <div role="tabpanel" class="tab-pane active" id="find-job">
               <div class="form-group">
-                <%= f.label :first_name, class:"pull-left" %><br />
+                <%= f.label :first_name, class:"pull-left text-white" %><br />
                 <%= f.text_field :first_name,class:"form-control" %>
               </div>
               <div class="form-group">
-                <%= f.label :last_name, class:"pull-left" %><br />
+                <%= f.label :last_name, class:"pull-left text-white" %><br />
                 <%= f.text_field :last_name,class:"form-control" %>
               </div>
               <div class="form-group">
-                <%= f.label :phone_no, class:"pull-left" %><br />
+                <%= f.label :phone_no, class:"pull-left text-white" %><br />
                 <%= f.text_field :phone_no,class:"form-control" %>
               </div>
               <div class="form-group">
-                <%= f.label :sex, class:"pull-left" %><br />
+                <%= f.label :sex, class:"pull-left text-white" %><br />
                 <%= f.text_field :sex,class:"form-control" %>
               </div>
 
+              <div class="form-group">
+                <%= f.label :Educations, class:"pull-left text-white" %><br />
+                <%= f.fields_for :seeker_educations do |ff| %>
+                  <%= render 'shared/educations', f: ff %>
+                <% end %>
+              </div>
 
-
-              <h3>Education</h3>
+              <!-- <h3>Education</h3>
 
                   <%= f.fields_for :seeker_educations do |ff| %>
                     <%= render 'shared/educations', f: ff %>
-                  <% end %>
+                  <% end %> -->
 
-              <h3>Category</h3>
+              <div class="form-group">
+                <%= f.label :Category, class:"pull-left text-white" %><br />
+                <%= f.fields_for :seeker_category do |ff| %>
+                    <%= render 'shared/category', f: ff %>
+                    <h3>Skills</h3>
+                      <%= f.fields_for :seeker_skills do |ff| %>
+                        <%= render 'shared/skills', f: ff %>
+                      <% end %>
+                  <% end %>
+              </div>
+              <!-- <h3>Category</h3>
 
                   <%= f.fields_for :seeker_category do |ff| %>
                     <%= render 'shared/category', f: ff %>
@@ -51,58 +66,58 @@
                         <%= render 'shared/skills', f: ff %>
 
                       <% end %>
-                  <% end %>
+                  <% end %> -->
 
 
               <div class="form-group">
-                <%= f.label :prefered_loc, class:"pull-left" %><br />
+                <%= f.label :prefered_loc, class:"pull-left text-white" %><br />
                 <%= f.text_field :prefered_loc,class:"form-control" %>
               </div>
 
               <div class="form-group">
-                <%= f.label :salary, class:"pull-left" %><br />
+                <%= f.label :salary, class:"pull-left text-white" %><br />
                 <%= f.text_field :salary,class:"form-control" %>
               </div>
               <div class="form-group">
-                <%= f.label :dob, class:"pull-left" %><br />
+                <%= f.label :dob, class:"pull-left text-white" %><br />
                 <%= f.text_field :dob,class:"form-control" %>
               </div>
               <div class="form-group">
-                <%= f.label :nationality, class:"pull-left" %><br />
+                <%= f.label :nationality, class:"pull-left text-white" %><br />
                 <%= f.text_field :nationality,class:"form-control" %>
               </div>
               <div class="form-group">
-                <%= f.label :perm_address, class:"pull-left" %><br />
+                <%= f.label :perm_address, class:"pull-left text-white" %><br />
                 <%= f.text_field :perm_address,class:"form-control" %>
               </div>
               <div class="form-group">
-                <%= f.label :temp_address, class:"pull-left" %><br />
+                <%= f.label :temp_address, class:"pull-left text-white" %><br />
                 <%= f.text_field :temp_address,class:"form-control" %>
               </div>
               <div class="form-group">
-                <%= f.label :location,"Birth Place", class:"pull-left" %><br />
+                <%= f.label :location,"Birth Place", class:"pull-left text-white" %><br />
                 <%= f.text_field :location,class:"form-control" %>
               </div>
               <div class="form-group">
-                <%= f.label :job_status, class:"pull-left" %><br />
+                <%= f.label :job_status, class:"pull-left text-white" %><br />
                 <%= f.text_field :job_status,class:"form-control" %>
               </div>
               <div class="form-group">
-                <%= f.label :experience, class:"pull-left" %><br />
+                <%= f.label :experience, class:"pull-left text-white" %><br />
                 <%= f.text_field :experience,class:"form-control" %>
               </div>
               <div class="form-group">
-                <%= f.label :certificate %><br />
-                <%= f.cktext_area :certificate, class: 'someclass', ckeditor: { language: 'uk'} %>
+                <%= f.label :certificate, class:"text-white" %><br />
+                <%= f.cktext_area :certificate, ckeditor: { language: 'uk'} %>
               </div>
 
               <div class="form-group">
-                <%= f.label :description  %><br />
-                <%= f.cktext_area :description, class: 'someclass', ckeditor: { language: 'uk'} %>
+                <%= f.label :description, class:"text-white"  %><br />
+                <%= f.cktext_area :description, ckeditor: { language: 'uk'} %>
               </div>
 
             <div class="actions">
-              <%= f.submit "Update", class: "btn btn-success btn-lg"%>
+              <%= f.submit "Update", class: "btn-primary"%>
             </div>
         <% end %>
       </div><!-- user-login -->
