@@ -11,11 +11,13 @@
         <!-- user-login -->
         <div class="col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
           <div class="user-account job-user-account">
-            <h2>Login in</h2>
+            <h2 id="change">Seeker's LogIn</h2>
               <ul class="nav nav-tabs text-center" role="tablist">
-                <li role="presentation" class="active"><%=link_to 'Find A Job',new_seeker_session_path %></li>
-                <li role="presentation"><%=link_to 'Post A Job',new_recuitor_session_path %></li>
+                <li role="presentation" onclick="function1()"><%=link_to 'Find A Job',new_seeker_session_path %></li>
+                <li role="presentation" onclick="function2()"><%=link_to 'Post A Job',new_recuitor_session_path %></li>
               </ul>
+              
+             
 
               <div class="tab-content">
                   <div role="tabpanel" class="tab-pane active" id="find-job">
@@ -43,3 +45,12 @@
       </div><!-- row -->
     </div><!-- container -->
   </section><!-- signup-page -->
+<script>
+  var element = document.getElementById("change")
+  function function1() {  
+    element.innerHTML="Seeker's LogIn";
+  }
+  function function2() {  
+    element.innerHTML="Recruitor's LogIn";
+  }
+</script>
