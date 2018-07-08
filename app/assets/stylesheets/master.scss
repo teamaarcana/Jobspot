@@ -169,12 +169,40 @@ textarea {
 	background-color: transparent;
 }
 
+label.pull-left.text-white {
+	color: white;
+}
+
+.text-white {
+	color: white;
+}
+
+h3.text-center {
+	color: #00a651;
+}
+
+ol li a{
+	color: white !important;
+}
+
+input.btn-primary {
+	width: 100%;
+}
+
+label.text-white {
+	text-align: left;
+}
+
+a.btn.text-white {
+	color: white;
+}
 
 /* Breadcrumb */
 
 .breadcrumb-section h2.title {
 	margin-top: 0;
 	margin-bottom: 32px;
+	color: white;
 }
 
 .breadcrumb-section .breadcrumb {
@@ -202,6 +230,13 @@ textarea {
 .navbar {
 	margin: 0;
 	
+}
+
+.navbar-fixed {
+  top: 0;
+  z-index: 100;
+  position: fixed;
+  width: 100%;
 }
 
 .nav li a,
@@ -429,7 +464,7 @@ a.fa.fa-key {
 	max-width: 114px;
 	background-color: #00a651;
 	border-radius: 0 5px 5px 0 ;
-	color: #fff;
+	//color: #fff;
 	text-transform: uppercase;
 	border-color:#00a651;
 	-webkit-transition: all 0.3s ease-in-out;
@@ -802,6 +837,7 @@ a.verified i {
 .breadcrumb {
 	background-color: transparent;
 	padding-left: 0;
+	color: white;
 }
 
 .breadcrumb li,
@@ -2073,7 +2109,7 @@ input:-moz-placeholder {
 ========================================================================== */
 
 .banner-job {
-	background-image: url(../../assets/background.jpg);
+	background-image: url(../../assets/banner.jpg);
 	background-repeat: no-repeat;
 	background-size: cover;
 	color: #fff;
@@ -2337,9 +2373,10 @@ input:-moz-placeholder {
 /* Job List Page */
 
 .job-bg {
-	background-image: url(../images/bg/job-list-bg.jpg);
-	background-repeat: no-repeat;
-	background-size: contain;
+	//background-image: url(../../assets/background.jpg);
+	//background-repeat: no-repeat;
+	//background-size: contain;
+	background-color: #00a651;
 }
 
 .banner-form-full.job-list-form {

@@ -1,45 +1,39 @@
-
-
-<div class="page">
-	<div class="container">
+<div class="container">
+	<div class="row">
 		<div class="section latest-jobs-ads">
 			<div class="section-title tab-manu">
 				<h4>Latest Jobs</h4>
 				 <!-- Nav tabs -->
-
 			</div>
 
 			<div class="tab-content">
-				<div>
-					<% @job_posts.each do |job_post| %>
-						<div class="job-ad-item">
-							<div class="item-info">
-
-
-								<div class="ad-info">
-									<span><a href="job-details.html" class=title><%= link_to  job_post.job_title ,  job_post_path(job_post) %></a>
-									<div class="ad-meta">
-										<ul>
-											<li><a href="#"><i class="fa fa-map-marker" aria-hidden="true"></i><%= job_post.location %> </a></li>
-											<li><a href="#"><i class="fa fa-clock-o" aria-hidden="true"></i><%= job_post.job_type %></a></li>
-											<li><a href="#"><i class="fa fa-tags" aria-hidden="true"></i><%= job_post.department %></a></li>
-										</ul>
-									</div><!-- ad-meta -->
-								</div><!-- ad-info -->
-									<div class="button">
-										<%= form_tag(apply_jobs_path,:method => "post") do %>
-											<%= hidden_field_tag "job_post_id", job_post.id %>
-											<%= button_tag "Apply Now", :class => 'btn btn-primary', data: { confirm: 'Do you want to apply for this job' }%>
-											<% end %>
-									</div>	
-							</div><!-- item-info -->
-						</div><!-- ad-item -->
-					<% end %>
-
-
-
-				</div><!-- tab-pane -->
-			</div><!-- tab-content -->
+				<% @job_posts.each do |job_post| %>
+					<div class="job-ad-item">
+						<div class="item-info">
+							<div class="ad-info">
+								<span><a href="job-details.html" class=title><%= link_to  job_post.job_title ,  job_post_path(job_post) %></a>
+								<div class="ad-meta">
+									<ul>
+										<li><a href="#"><i class="fa fa-map-marker" aria-hidden="true"></i><%= job_post.location %> </a></li>
+										<li><a href="#"><i class="fa fa-clock-o" aria-hidden="true"></i><%= job_post.job_type %></a></li>
+										<li><a href="#"><i class="fa fa-tags" aria-hidden="true"></i><%= job_post.department %></a></li>
+									</ul>
+								</div><!-- ad-meta -->
+							</div><!-- ad-info -->
+							<div class="button">
+								<%= form_tag(apply_jobs_path,:method => "post") do %>
+									<%= hidden_field_tag "job_post_id", job_post.id %>
+									<%= button_tag "Apply Now", :class => 'btn btn-primary', data: { confirm: 'Do you want to apply for this job' }%>
+									<% end %>
+							</div>	
+						</div><!-- item-info -->
+					</div><!-- ad-item -->
+				<% end %>
+			</div><!-- tab-pane -->
 		</div><!-- trending ads -->
 	</div>
 </div>
+
+
+
+
