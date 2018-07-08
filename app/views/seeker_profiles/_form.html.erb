@@ -3,115 +3,109 @@
     <div class="row text-center">
       <!-- user-login -->
       <div class="col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
+        <%= form_for @seeker_profile do |f| %>
+          <% if seeker_profile.errors.any? %>
+            <div id="error_explanation">
+              <h2><%= pluralize(seeker_profile.errors.count, "error") %> prohibited this seeker_profile from being saved:</h2>
+              <ul>
+                <% seeker_profile.errors.full_messages.each do |message| %>
+                  <li><%= message %></li>
+                <% end %>
+              </ul>
+            </div>
+          <% end %>
 
-
-<%= form_for @seeker_profile do |f| %>
-  <% if seeker_profile.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(seeker_profile.errors.count, "error") %> prohibited this seeker_profile from being saved:</h2>
-
-      <ul>
-      <% seeker_profile.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-
-  <div class="tab-content">
-              <div role="tabpanel" class="tab-pane active" id="find-job">
-                <div class="form-group">
-                  <%= f.label :first_name %><br />
-                  <%= f.text_field :first_name,class:"form-control" %>
-                </div>
-                <div class="form-group">
-                  <%= f.label :last_name %><br />
-                  <%= f.text_field :last_name,class:"form-control" %>
-                </div>
-                <div class="field">
-                  <%= f.label :phone_no %><br />
-                  <%= f.text_field :phone_no,class:"form-control" %>
-                </div>
-                <div class="form-group">
-                  <%= f.label :sex %><br />
-                  <%= f.text_field :sex,class:"form-control" %>
-                </div>
+          <div class="tab-content">
+            <div role="tabpanel" class="tab-pane active" id="find-job">
+              <div class="form-group">
+                <%= f.label :first_name, class:"pull-left" %><br />
+                <%= f.text_field :first_name,class:"form-control" %>
+              </div>
+              <div class="form-group">
+                <%= f.label :last_name, class:"pull-left" %><br />
+                <%= f.text_field :last_name,class:"form-control" %>
+              </div>
+              <div class="form-group">
+                <%= f.label :phone_no, class:"pull-left" %><br />
+                <%= f.text_field :phone_no,class:"form-control" %>
+              </div>
+              <div class="form-group">
+                <%= f.label :sex, class:"pull-left" %><br />
+                <%= f.text_field :sex,class:"form-control" %>
+              </div>
 
 
 
-                <h1>Education</h1>
+              <h3>Education</h3>
 
-                    <%= f.fields_for :seeker_educations do |ff| %>
+                  <%= f.fields_for :seeker_educations do |ff| %>
                     <%= render 'shared/educations', f: ff %>
+                  <% end %>
 
-                    <% end %>
+              <h3>Category</h3>
 
-                <h1>Category</h1>
+                  <%= f.fields_for :seeker_category do |ff| %>
+                    <%= render 'shared/category', f: ff %>
+                    <h3>Skills</h3>
+                      <%= f.fields_for :seeker_skills do |ff| %>
+                        <%= render 'shared/skills', f: ff %>
 
-                    <%= f.fields_for :seeker_category do |ff| %>
-                      <%= render 'shared/category', f: ff %>
-                      <h1>Skills</h1>
-                        <%= f.fields_for :seeker_skills do |ff| %>
-                          <%= render 'shared/skills', f: ff %>
-
-                        <% end %>
-                    <% end %>
-
-
-                <div class="form-group">
-                  <%= f.label :prefered_loc %><br />
-                  <%= f.text_field :prefered_loc,class:"form-control" %>
-                </div>
-
-                <div class="form-group">
-                  <%= f.label :salary %><br />
-                  <%= f.text_field :salary,class:"form-control" %>
-                </div>
-                <div class="form-group">
-                  <%= f.label :dob %><br />
-                  <%= f.text_field :dob,class:"form-control" %>
-                </div>
-                <div class="form-group">
-                  <%= f.label :nationality %><br />
-                  <%= f.text_field :nationality,class:"form-control" %>
-                </div>
-                <div class="form-group">
-                  <%= f.label :perm_address %><br />
-                  <%= f.text_field :perm_address,class:"form-control" %>
-                </div>
-                <div class="form-group">
-                  <%= f.label :temp_address %><br />
-                  <%= f.text_field :temp_address,class:"form-control" %>
-                </div>
-                <div class="form-group">
-                  <%= f.label :location,"Birth Place" %><br />
-                  <%= f.text_field :location,class:"form-control" %>
-                </div>
-                <div class="form-group">
-                  <%= f.label :job_status %><br />
-                  <%= f.text_field :job_status,class:"form-control" %>
-                </div>
-                <div class="form-group">
-                  <%= f.label :experience %><br />
-                  <%= f.text_field :experience,class:"form-control" %>
-                </div>
-                <div class="form-group">
-                  <%= f.label :certificate %><br />
-                  <%= f.cktext_area :certificate, class: 'someclass', ckeditor: { language: 'uk'} %>
-                </div>
-
-                <div class="form-group">
-                  <%= f.label :description %><br />
-                  <%= f.cktext_area :description, class: 'someclass', ckeditor: { language: 'uk'} %>
-                </div>
+                      <% end %>
+                  <% end %>
 
 
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
-</div><!-- user-login -->
-</div><!-- row -->
-</div><!-- container -->
+              <div class="form-group">
+                <%= f.label :prefered_loc, class:"pull-left" %><br />
+                <%= f.text_field :prefered_loc,class:"form-control" %>
+              </div>
+
+              <div class="form-group">
+                <%= f.label :salary, class:"pull-left" %><br />
+                <%= f.text_field :salary,class:"form-control" %>
+              </div>
+              <div class="form-group">
+                <%= f.label :dob, class:"pull-left" %><br />
+                <%= f.text_field :dob,class:"form-control" %>
+              </div>
+              <div class="form-group">
+                <%= f.label :nationality, class:"pull-left" %><br />
+                <%= f.text_field :nationality,class:"form-control" %>
+              </div>
+              <div class="form-group">
+                <%= f.label :perm_address, class:"pull-left" %><br />
+                <%= f.text_field :perm_address,class:"form-control" %>
+              </div>
+              <div class="form-group">
+                <%= f.label :temp_address, class:"pull-left" %><br />
+                <%= f.text_field :temp_address,class:"form-control" %>
+              </div>
+              <div class="form-group">
+                <%= f.label :location,"Birth Place", class:"pull-left" %><br />
+                <%= f.text_field :location,class:"form-control" %>
+              </div>
+              <div class="form-group">
+                <%= f.label :job_status, class:"pull-left" %><br />
+                <%= f.text_field :job_status,class:"form-control" %>
+              </div>
+              <div class="form-group">
+                <%= f.label :experience, class:"pull-left" %><br />
+                <%= f.text_field :experience,class:"form-control" %>
+              </div>
+              <div class="form-group">
+                <%= f.label :certificate %><br />
+                <%= f.cktext_area :certificate, class: 'someclass', ckeditor: { language: 'uk'} %>
+              </div>
+
+              <div class="form-group">
+                <%= f.label :description  %><br />
+                <%= f.cktext_area :description, class: 'someclass', ckeditor: { language: 'uk'} %>
+              </div>
+
+            <div class="actions">
+              <%= f.submit "Update", class: "btn btn-success btn-lg"%>
+            </div>
+        <% end %>
+      </div><!-- user-login -->
+    </div><!-- row -->
+  </div><!-- container -->
 </section><!-- signup-page -->

@@ -99,7 +99,6 @@ input:focus, textarea:focus, select:focus, .form-control:focus {
 
 .title {
 	line-height: 34px;
-	color: #ffffff;
 	font-family: 'Ubuntu', sans-serif;
 	font-weight: 700;
 }
@@ -235,6 +234,9 @@ textarea {
 	color: #00a651;
 }
 
+a.fa.fa-key {
+	margin-left: -10px;
+}
 
 .dropdown-menu {
 	border-radius: 0;
@@ -803,14 +805,13 @@ a.verified i {
 
 .breadcrumb li,
 .breadcrumb li a {
-	color: #fff;
 	font-weight: 300;
 }
 
 .breadcrumb>li+li:before {
 	content: "\f101";
 	font-family: FontAwesome;
-	color: #fff;
+	
 }
 
 #something-sell h2.title {
@@ -2071,7 +2072,7 @@ input:-moz-placeholder {
 ========================================================================== */
 
 .banner-job {
-	background-image: url(../images/bg/job-bg.jpg);
+	background-image: url(../../assets/background.jpg);
 	background-repeat: no-repeat;
 	background-size: cover;
 	color: #fff;
@@ -3128,89 +3129,3 @@ input, select, a, .transition,
 }
 
 
-/*========================
-=======style-chooser======
-==========================*/
-
-.style-chooser {
-	width: 140px;
-	right: -140px;
-	position: fixed;
-	top: 50%;
-	margin-top:-121px;
-	z-index: 99999;
-	-webkit-transition: all 0.4s ease-in-out;
-	-moz-transition: all 0.4s ease-in-out;
-	-ms-transition: all 0.4s ease-in-out;
-	-o-transition: all 0.4s ease-in-out;
-	transition: all 0.4s ease-in-out;
-}
-
-.style-chooser.opened {
-	right: 0;
-}
-
-.style-chooser .toggler {
-	position: absolute;
-	top: 0;
-	left: -48px;
-	display: inline-block;
-	background-color: #ddd;
-	width: 48px;
-	height: 48px;
-	line-height: 48px;
-	text-align: center;
-	font-size: 24px;
-	color: #333;
-}
-
-.style-chooser-inner {
-	position: relative;
-	background-color: #ddd;
-	padding: 15px;
-}
-
-.style-chooser-inner h4 {
-	margin: 0 0 10px;
-	text-transform: uppercase;
-	font-size: 13px;
-}
-
-.style-chooser-inner ul {
-	list-style: none;
-	padding: 0;
-	margin: -5px;
-}
-
-.style-chooser-inner ul li {
-	display: block;
-	width: 58px;
-	float: left;
-	padding: 5px;
-	-webkit-box-sizing: border-box;
-	-moz-box-sizing: border-box;
-	-ms-box-sizing: border-box;
-	-o-box-sizing: border-box;
-	box-sizing: border-box;
-}
-
-.style-chooser-inner ul li a {
-	display: block;
-	height: 40px;
-}
-
-.style-chooser-inner ul li.preset1 a {
-	background-color: #00a651;
-}
-
-.style-chooser-inner ul li.preset2 a {
-	background-color: #f26522;
-}
-
-.style-chooser-inner ul li.preset3 a {
-	background-color: #0054a6;
-}
-
-.style-chooser-inner ul li.preset4 a {
-  background: #662d91;
-}

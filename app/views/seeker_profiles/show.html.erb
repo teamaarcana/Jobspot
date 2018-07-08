@@ -7,7 +7,7 @@
   <div class="container">
     <div class="breadcrumb-section">
       <ol class="breadcrumb">
-        <li><a href="index-2.html">Home</a></li>
+        <li><%= link_to 'Home',root_path%></li>
         <li>Employee Profile</li>
       </ol>
       <h2 class="title">My Profile</h2>
@@ -47,9 +47,6 @@
         </div>
       </div><!-- profile -->
 
-
-
-
       <div class="educational-background section">
         <div class="icons">
             <i class="fa fa-graduation-cap" aria-hidden="true"></i>
@@ -58,19 +55,17 @@
           <h3>Education Background</h3>
           <ul>
             <% @seeker_profile.seeker_educations.each do |f| %>
-            <li>
-              <h4><%= f.education.eduName %></h4>
-              <ul>
-                <li>Passed Year: <span><%= f.year %></span> </li>
-                <li>Collge/School <span><%= f.colzname %></span></li>
+              <li>
+                <h4><%= f.education.eduName %></h4>
+                <ul>
+                  <li>Passed Year: <span><%= f.year %></span> </li>
+                  <li>Collge/School <span><%= f.colzname %></span></li>
 
-              </ul>
-            </li>
-
+                </ul>
+              </li>
             <% end %>
           </ul>
-
-      </div><!-- educational-background -->
+        </div><!-- educational-background -->
 
 
       <div class="icons">
@@ -90,7 +85,7 @@
           <% @seeker_profile.seeker_category.skills.each do |f| %>
             <h3><%= f.name %> <h3>
           <% end %>
-        </ul>
+        </ul> 
 
     </div><!-- educational-background -->
 </br>
@@ -105,8 +100,6 @@
 
         </div>
       </div><!-- educational-background -->
-
-
 
       <div class="personal-deatils section">
           <div class="icons">
