@@ -1,7 +1,7 @@
 <!-- header -->
 <header id="header" class="clearfix">
 	<!-- navbar -->
-	<nav class="navbar navbar-default">
+	<nav class="navbar navbar-default navbar-fixed">
 		<div class="container">
 			<!-- navbar-header -->
 			<div class="navbar-header">
@@ -36,8 +36,8 @@
 							<ul class="dropdown-menu pull-right">
 								<li><%= link_to 'Profile', seeker_profile_path(current_seeker.id), class: "fa fa-user" %></li>
 								<li><%= link_to 'Edit Profile', edit_seeker_profile_path(current_seeker.id), class: "fa fa-cog" %></li>
-								<li><%= link_to 'Logout',destroy_seeker_session_path, method: 'delete', class: "fa fa-sign-out" %></li>
 								<li><%= link_to 'Change Password',edit_seeker_registration_path, class: "fa fa-key" %></li>
+								<li><%= link_to 'Logout',destroy_seeker_session_path, method: 'delete', class: "fa fa-sign-out" %></li>
 							</ul>
 						</div>
 					<% elsif recuitor_signed_in? %>
