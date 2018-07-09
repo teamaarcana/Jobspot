@@ -73,7 +73,7 @@
       </div>
       <div class="educational-info">
         <h3>Category</h3>
-        <h3><%= @seeker_profile.seeker_category.category.name %></h3>
+        <h3><%= @seeker_profile.seeker_categories.category.name %></h3>
       </div>
 </br>
       <div class="icons">
@@ -85,7 +85,7 @@
           <% @seeker_profile.seeker_category.skills.each do |f| %>
             <h3><%= f.name %> <h3>
           <% end %>
-        </ul> 
+        </ul>
 
     </div><!-- educational-background -->
 </br>
