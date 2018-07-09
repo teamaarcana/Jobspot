@@ -154,10 +154,10 @@ ActiveRecord::Schema.define(version: 20180629143502) do
 
   create_table "seeker_skills", force: :cascade do |t|
     t.bigint "skill_id"
-    t.bigint "seeker_category_id"
+    t.bigint "seeker_profile_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["seeker_category_id"], name: "index_seeker_skills_on_seeker_category_id"
+    t.index ["seeker_profile_id"], name: "index_seeker_skills_on_seeker_profile_id"
     t.index ["skill_id"], name: "index_seeker_skills_on_skill_id"
   end
 

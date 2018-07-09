@@ -5,7 +5,11 @@ class SeekerProfile < ApplicationRecord
   accepts_nested_attributes_for :seeker_educations
 
 
-  has_one :seeker_category, dependent: :destroy
-  has_one :category, :through => :seeker_category
-  accepts_nested_attributes_for :seeker_category
+  has_many :seeker_categories, dependent: :destroy
+  has_many :categories, :through => :seeker_categories
+  accepts_nested_attributes_for :seeker_categories
+
+  has_many :seeker_skills, dependent: :destroy
+  has_many :skills, :through => :seeker_skills
+  accepts_nested_attributes_for :seeker_skills
 end

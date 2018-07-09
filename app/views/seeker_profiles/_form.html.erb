@@ -39,20 +39,21 @@
               <h3>Education</h3>
 
                   <%= f.fields_for :seeker_educations do |ff| %>
-                    <%= render 'shared/educations', f: ff %>
+                    <%= render 'shared/seeker_education', f: ff %>
                   <% end %>
+                  <%= link_to_add_fields "Add Education", f, :seeker_educations %>
 
               <h3>Category</h3>
 
-                  <%= f.fields_for :seeker_category do |ff| %>
-                    <%= render 'shared/category', f: ff %>
-                    <h3>Skills</h3>
-                      <%= f.fields_for :seeker_skills do |ff| %>
-                        <%= render 'shared/skills', f: ff %>
-
-                      <% end %>
+                  <%= f.fields_for :seeker_categories do |ff| %>
+                    <%= render 'shared/seeker_category', f: ff %>
                   <% end %>
 
+              <h3>Skills</h3>
+                <%= f.fields_for :seeker_skills do |ff| %>
+                  <%= render 'shared/seeker_skill', f: ff %>
+                <% end %>
+                <%= link_to_add_fields "Add Skils", f, :seeker_skills %>
 
               <div class="form-group">
                 <%= f.label :prefered_loc, class:"pull-left" %><br />
