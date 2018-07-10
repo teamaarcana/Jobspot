@@ -56,6 +56,9 @@
 									<div class="button">
 										<%= form_tag(apply_jobs_path,:method => "post") do %>
 											<%= hidden_field_tag "job_post_id", job_post.id %>
+											<% if seeker_signed_in? %>
+												<%= hidden_field_tag "seeker_id", current_seeker.id %>
+											<% end %>
 											<%= button_tag "Apply Now", :class => 'btn btn-primary', data: { confirm: 'Do you want to apply for this job' }%>
 										<% end %>
 									</div>
