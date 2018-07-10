@@ -69,8 +69,8 @@
       <div class="educational-info">
         <h3>Category</h3>
 
-        <% if @seeker_profile.seeker_category.present? %>
-          <%= @seeker_profile.seeker_category.category.name %>
+        <% if @seeker_profile.seeker_categories.present? %>
+          <%= @seeker_profile.seeker_categories.first.name %>
         <% end %>
       </div>
 </br>
@@ -81,9 +81,9 @@
         <h3>Skills</h3>
         <ul>
 
-          <% if @seeker_profile.seeker_category.present? %>
-            <% @seeker_profile.seeker_category.skills.each do |f| %>
-              <h3><%= f.name %> <h3>
+          <% if @seeker_profile.seeker_skills.present? %>
+            <% @seeker_profile.seeker_skills.each do |f| %>
+              <h3><%= f.skill.name %> <h3>
             <% end %>
           <% end %>
 

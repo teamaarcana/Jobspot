@@ -41,10 +41,12 @@
 
                     <%= render 'shared/seeker_education', f: ff %>
                   <% end %>
-                  <%= link_to_add_fields "Add Education", f, :seeker_educations %>
 
-                    <%= render 'shared/educations', f: ff %>
-                  <% end %>
+
+                  <button type="button" class="btn btn-default">
+                      <%= link_to_add_fields "Add Education", f, :seeker_educations %>
+                  </button>
+
 
                  <h3>Category</h3>
 
@@ -53,12 +55,15 @@
                     <%= render 'shared/seeker_category', f: ff %>
                   <% end %>
 
-                
+
               <h3>Skills</h3>
                 <%= f.fields_for :seeker_skills do |ff| %>
                   <%= render 'shared/seeker_skill', f: ff %>
                 <% end %>
-                <%= link_to_add_fields "Add Skils", f, :seeker_skills %>
+                <button type="button" class="btn btn-default">
+                  <%= link_to_add_fields "Add Skils", f, :seeker_skills %>
+                </button>
+
 
               <div class="form-group">
                 <%= f.label :prefered_loc, class:"pull-left text-white" %><br />
