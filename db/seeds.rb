@@ -74,7 +74,7 @@ SeekerCategory.create(category_id: rand(1..8),
                       seeker_profile_id: x+1
                       )
 SeekerSkill.create(skill_id: rand(1..20),
-                    seeker_profile_id: x+1,
+                    seeker_profile_id: x+1
                       )
 SeekerEducation.create(education_id: rand(1..6),
                       seeker_profile_id: x+1,

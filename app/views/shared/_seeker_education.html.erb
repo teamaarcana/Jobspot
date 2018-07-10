@@ -1,5 +1,5 @@
 <div class="form-group">
 	<%= f.select(:education_id, Education.all.collect {|u| [u.eduName, u.id]}, :prompt => 'Select') %>
-	<%= f.text_field :colzname %>
-	<%= f.text_field :year %><br>
+	<%= f.text_field :colzname, placeholder: "Name of School/College" %>
+	<%= f.text_field :year, placeholder: "Pass Out Year" %><br>
 </div>
