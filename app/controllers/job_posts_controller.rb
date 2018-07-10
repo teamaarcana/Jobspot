@@ -4,7 +4,7 @@ class JobPostsController < ApplicationController
   before_action :authenticate_recuitor!, only: [:edit, :update, :destroy,:new,:create]
 
   def index
-    @job_posts = JobPost.order("created_at DESC").all
+    @job_posts = JobPost.order("created_at DESC").paginate(:page => params[:page], :per_page => 10)
   end
 
   def show
