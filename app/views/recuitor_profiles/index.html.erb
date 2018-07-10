@@ -1,1 +1,4 @@
-List all company details
+<h1> Recuitors companies </h1>
+<% @recuitor_profiles.each do |recuitor_profile| %>
+  <%= recuitor_profile.company_name %><br>
+<% end %>
