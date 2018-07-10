@@ -197,6 +197,41 @@ a.btn.text-white {
 	color: white;
 }
 
+a.fa.fa-sign-out {
+	margin-left: -10px;
+}
+
+.form-group.inline.pull-left {
+	display: -webkit-inline-box;
+}
+
+label#male {
+	margin-right: 20px;
+}
+
+label#female {
+	margin-left: 20px;
+	margin-right: 20px;
+}
+
+.form-group.sex {
+	margin-bottom: 30px;
+}
+
+button.btn.btn-default.pull-left.edu {
+	margin-left: -64px;
+	margin-top: 5px;
+	width: 100%;
+	margin-bottom: 15px;
+}
+
+button.btn.btn-default.pull-left.skill {
+	margin-left: -35px;
+	margin-top: 5px;
+	width: 100%;
+	margin-bottom: 15px;
+}
+
 /* Breadcrumb */
 
 .breadcrumb-section h2.title {
@@ -270,9 +305,6 @@ a.btn.text-white {
 	color: #00a651;
 }
 
-a.fa.fa-key {
-	margin-left: -10px;
-}
 
 .dropdown-menu {
 	border-radius: 0;

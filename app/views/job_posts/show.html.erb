@@ -23,6 +23,8 @@
           </div><!-- ad-info -->
         </div><!-- item-info -->
         <div class="social-media">
+          <% unless recuitor_signed_in? %>
+
           <div class="button">
             <div class="button">
               <%= form_tag(apply_jobs_path,:method => "post") do %>
@@ -30,6 +32,7 @@
                 <%= button_tag "Apply Now", :class => 'btn btn-primary fa fa-briefcase', data: { confirm: 'Do you want to apply for this job' }%>
                 <% end %>
             </div>
+            <% end %>
             <!-- <a href="#" class="btn btn-primary"><i class="fa fa-briefcase" aria-hidden="true"></i>Apply For This Job</a> -->
           </div>
           <!-- <ul class="share-social">

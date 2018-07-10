@@ -2,6 +2,14 @@ class RecuitorProfilesController < ApplicationController
  before_action :set_recuitor_profile, only: [:show, :edit, :update, :destroy]
  before_action :is_owner?, only: [:edit, :update, :destroy]
 
+  def index
+    @recuitor_profiles = RecuitorProfile.all
+  end
+
+  def posted_jobs
+    @job_posts =  current_recuitor.job_posts
+  end
+
   def show
   end
 
