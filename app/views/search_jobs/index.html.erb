@@ -62,8 +62,14 @@
 								<% end %>
 							</div><!-- item-info -->
 						</div><!-- ad-item -->
-					<% end %>
+					<% end %>				
 				</div><!-- tab-pane -->
+				<div class="digg_pagination clearfix text-center">
+					<div class="page_info">
+					<%= page_entries_info @job_posts %>
+					</div>
+					<%= will_paginate @job_posts, :container => false %>
+				</div>
 		</div><!-- trending ads -->
 	</div>
 </div>
