@@ -29,41 +29,39 @@
                 <%= f.label :phone_no, class:"pull-left text-white" %><br />
                 <%= f.text_field :phone_no,class:"form-control" %>
               </div>
+              <div class="form-group sex">
+                <%= f.label :sex, "Male", :value => "true", class:"text-white pull-left", id: "male"  %>
+                <%= f.radio_button :sex, true, class: "pull-left" %>
+                <%= f.label :sex, "Female", :value => "false", class:"text-white pull-left", id: "female" %>
+                <%= f.radio_button :sex, false, :checked => true, class: "pull-left" %>
+              </div>
+              <br />
               <div class="form-group">
-                <%= f.label :sex, class:"pull-left text-white" %><br />
-                <%= f.text_field :sex,class:"form-control" %>
+                <%= f.label :education, class:"pull-left text-white" %><br />
+                <%= f.fields_for :seeker_educations do |ff| %>
+                  <%= render 'shared/seeker_education', f: ff %>
+                <% end %>
+                <button type="button" class="btn btn-default pull-left edu">
+                  <%= link_to_add_fields "Add Education", f, :seeker_educations %>
+                </button>
               </div>
 
+              <div class="form-group">
+                <%= f.label :category, class:"pull-left text-white" %><br />
+                <%= f.fields_for :seeker_categories do |ff| %>
+                  <%= render 'shared/seeker_category', f: ff %>
+                <% end %>
+              </div>
 
-               <h3>Education</h3>
-
-                  <%= f.fields_for :seeker_educations do |ff| %>
-
-                    <%= render 'shared/seeker_education', f: ff %>
-                  <% end %>
-
-
-                  <button type="button" class="btn btn-default">
-                      <%= link_to_add_fields "Add Education", f, :seeker_educations %>
-                  </button>
-
-
-                 <h3>Category</h3>
-
-
-                  <%= f.fields_for :seeker_categories do |ff| %>
-                    <%= render 'shared/seeker_category', f: ff %>
-                  <% end %>
-
-
-              <h3>Skills</h3>
+              <div class="form-group">
+                <%= f.label :skills, class:"pull-left text-white" %><br />
                 <%= f.fields_for :seeker_skills do |ff| %>
                   <%= render 'shared/seeker_skill', f: ff %>
                 <% end %>
-                <button type="button" class="btn btn-default">
-                  <%= link_to_add_fields "Add Skils", f, :seeker_skills %>
+                <button type="button" class="btn btn-default pull-left skill">
+                  <%= link_to_add_fields "Add Skills", f, :seeker_skills %>
                 </button>
-
+              </div>
 
               <div class="form-group">
                 <%= f.label :prefered_loc, class:"pull-left text-white" %><br />
