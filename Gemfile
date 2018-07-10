@@ -17,7 +17,7 @@ gem 'jquery-rails'
 gem "font-awesome-rails"
 #gem 'rails-erd', group: :development
 gem 'ckeditor'
-
+gem 'faker'
 # Use Puma as the app server
 gem 'puma', '~> 3.7'
 # Use SCSS for stylesheets
