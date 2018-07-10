@@ -16,14 +16,17 @@ class SeekerProfilesController < ApplicationController
   # GET /seeker_profiles/new
   def new
     @seeker_profile = SeekerProfile.new
-    # @seeker_profile.seeker_educations.build
-    # @seeker_profile.seeker_category.build
+    #  5.times do
+    #    @seeker_profile.seeker_educations.build
+    #    @seeker_profile.seeker_skills.build
+    #  end
+      @seeker_profile.seeker_categories.build
+
   end
 
   # GET /seeker_profiles/1/edit
   def edit
-  #   @seeker_profile.seeker_educations.build
-  #  @seeker_profile.seeker_category.seeker_skills.build
+  #  @seeker_profile.seeker_categories.build
 
   end
 
@@ -31,7 +34,6 @@ class SeekerProfilesController < ApplicationController
   # POST /seeker_profiles.json
   def create
     @seeker_profile =  current_seeker.create_seeker_profile(seeker_profile_params)
-
     respond_to do |format|
       if @seeker_profile.save
         format.html { redirect_to root_path, notice: 'Seeker profile was successfully created.' }
@@ -78,7 +80,7 @@ class SeekerProfilesController < ApplicationController
       params.require(:seeker_profile).permit(:first_name,:last_name,:prefered_loc,:sex,:phone_no,
                                                                 :experience,:salary,:dob,:nationality,:perm_address,:job_status,:certificate,
                                                                 :temp_address,:description,:seeker_id, seeker_educations_attributes: SeekerEducation.attribute_names.map(&:to_sym),
-                                                                seeker_category_attributes: [:category_id,:seeker_profile_id,seeker_skills_attributes:  SeekerSkill.attribute_names.map(&:to_sym)])
+                                                                seeker_categories_attributes: SeekerCategory.attribute_names.map(&:to_sym),  seeker_skills_attributes: SeekerSkill.attribute_names.map(&:to_sym))
     end
 
     def is_owner?
