@@ -3,8 +3,8 @@ default: &default
   encoding: utf8
   host: localhost
   pool: 5
-  username: sarad
-  password: 
+  username: username
+  password: password
   socket: /var/run/postgresql
 
 development:

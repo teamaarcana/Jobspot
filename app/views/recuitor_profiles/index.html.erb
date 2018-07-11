@@ -4,12 +4,14 @@
 		<div class="item-info">
 			<div class="ad-info">
 				<span><%= recuitor_profile.company_name %><br></span>
-				<%= recuitor_profile.industry %><br>
-				<%= recuitor_profile.website %><br>
-				<%= recuitor_profile.email %><br>
-				<%= recuitor_profile.contact_no %><br>
-				<%= recuitor_profile.address %><br>
-				<%= recuitor_profile.pan_no %><br>
+				<div class="ad-meta">
+					<i class="fa fa-industry"></i><%= recuitor_profile.industry %><br>
+					<i class="fa fa-id-card"></i><%= recuitor_profile.pan_no %><br>
+					<i class="fa fa-globe"></i><%= recuitor_profile.website %><br>
+					<i class="fa fa-envelope"></i><%= recuitor_profile.email %><br>
+					<i class="fa fa-phone"></i><%= recuitor_profile.contact_no %><br>
+					<i class="fa fa-map-marker"></i><%= recuitor_profile.address %><br>
+				</div>
 			</div>
 		</div>
 	</div>

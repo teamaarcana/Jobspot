@@ -63,9 +63,9 @@
         </div><!-- educational-background -->
         <div class="recommendations pull-right" >
           <h3>Recommended Jobs </h3>
-        <%  @recommended_jobs.first(10).each do |job| %>
-            <%= link_to JobPost.find_by_id(job.last).job_title, job_post_path(job.last) %> </br>
-        <% end %>
+          <%  @recommended_jobs.first(10).each do |job| %>
+              <%= link_to JobPost.find_by_id(job.last).job_title, job_post_path(job.last) %> </br>
+          <% end %>
         </div>
 
         <div class="icons">
