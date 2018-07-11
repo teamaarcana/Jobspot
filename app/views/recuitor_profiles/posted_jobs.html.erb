@@ -1,4 +1,4 @@
 <h1> Recuitor dashboard of all posted jobs </h1>
 <% @job_posts.each do |job_post| %>
-  <%= job_post.job_title %><br>
+  <%= link_to job_post.job_title, applied_seeker_path(job_post) %><br>
 <% end %>

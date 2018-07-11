@@ -10,6 +10,11 @@ class RecuitorProfilesController < ApplicationController
     @job_posts =  current_recuitor.job_posts
   end
 
+  def applied_seeker
+    @job_post = current_recuitor.job_posts.find(params[:id])
+    @applied_seeker = @job_post.apply_jobs
+  end
+
   def show
   end
 

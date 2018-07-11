@@ -1,0 +1,5 @@
+<h1> Applied seeker for posted jobs </h1>
+<h2><%= @job_post.job_title %></h2> <br>
+<% @applied_seeker.each do |seeker| %>
+  <%= link_to profile(seeker.seeker_id),  seeker_profile_path(seeker.seeker_id) %><br>
+<% end %>

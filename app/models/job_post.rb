@@ -6,9 +6,13 @@ class JobPost < ApplicationRecord
   accepts_nested_attributes_for :job_educations
 
 
-  has_one :job_category, dependent: :destroy
-  has_one :category, :through => :job_category
-  accepts_nested_attributes_for :job_category
+  has_many :job_categories, dependent: :destroy
+  has_many :categories, :through => :job_categories
+  accepts_nested_attributes_for :job_categories
 
   has_many :apply_jobs
+
+  has_many :job_skills, dependent: :destroy
+  has_many :skills, :through => :job_skills
+  accepts_nested_attributes_for :job_skills
 end
