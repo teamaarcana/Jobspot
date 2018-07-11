@@ -11,7 +11,45 @@ class SeekerProfilesController < ApplicationController
   # GET /seeker_profiles/1
   # GET /seeker_profiles/1.json
   def show
+    education =  @seeker_profile.educations.pluck(:eduName)
+    categories = @seeker_profile.categories.pluck(:name)
+    skills =  @seeker_profile.skills.pluck(:name)
+    job = education + categories + skills
+    this_jobs = Array.new
+    JobPost.all.each do |job|
+      education =  job.educations.pluck(:eduName)
+      categories = job.categories.pluck(:name)
+      skills =  job.skills.pluck(:name)
+      id = job.id
+      this =  education + categories + skills
+      this.push(id)
+      this_jobs.push(this)
+    end
+    @recommended_jobs = recommendations(this_jobs,job).sort_by { |job| 1 - job.jaccard_index }
+    # @recommended_jobs.each do |job|
+    #   puts "#{job} (#{'%.4f' % job.jaccard_index})"
+    # end
+
   end
+
+  # recommendations algorithm
+  def recommendations(this_jobs,job)
+    this_jobs.map! do |this_job|
+     this_job.define_singleton_method(:jaccard_index) do @jaccard_index;  end
+
+     this_job.define_singleton_method("jaccard_index=") do |index|
+       @jaccard_index = index || 0.0
+     end
+
+     intersection = (job & this_job).size
+     union = (job | this_job).size
+
+     this_job.jaccard_index = (intersection.to_f / union.to_f) rescue 0.0
+     this_job
+
+    end
+  end
+
 
   # GET /seeker_profiles/new
   def new
