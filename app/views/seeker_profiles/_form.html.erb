@@ -66,16 +66,16 @@
               </div>
 
               <div class="form-group">
-                <%= f.label :prefered_loc, class:"pull-left text-white" %><br />
+                <%= f.label :prefered_loc,"Preferred Location", class:"pull-left text-white" %><br />
                 <%= f.text_field :prefered_loc,class:"form-control" %>
               </div>
 
               <div class="form-group">
-                <%= f.label :salary, class:"pull-left text-white" %><br />
+                <%= f.label :salary,"Expected Salary", class:"pull-left text-white" %><br />
                 <%= f.text_field :salary,class:"form-control" %>
               </div>
               <div class="form-group">
-                <%= f.label :dob, class:"pull-left text-white" %><br />
+                <%= f.label :dob,"DoB(dd/mm/yyyy)", class:"pull-left text-white" %><br />
                 <%= f.text_field :dob,class:"form-control" %>
               </div>
               <div class="form-group">
@@ -83,11 +83,11 @@
                 <%= f.text_field :nationality,class:"form-control" %>
               </div>
               <div class="form-group">
-                <%= f.label :perm_address, class:"pull-left text-white" %><br />
+                <%= f.label :perm_address,"Permanent Address", class:"pull-left text-white" %><br />
                 <%= f.text_field :perm_address,class:"form-control" %>
               </div>
               <div class="form-group">
-                <%= f.label :temp_address, class:"pull-left text-white" %><br />
+                <%= f.label :temp_address,"Temporary Address", class:"pull-left text-white" %><br />
                 <%= f.text_field :temp_address,class:"form-control" %>
               </div>
               <div class="form-group">
@@ -95,20 +95,20 @@
                 <%= f.text_field :location,class:"form-control" %>
               </div>
               <div class="form-group">
-                <%= f.label :job_status, class:"pull-left text-white" %><br />
+                <%= f.label :job_status,"Job Status(True/False)", class:"pull-left text-white" %><br />
                 <%= f.text_field :job_status,class:"form-control" %>
               </div>
               <div class="form-group">
-                <%= f.label :experience, class:"pull-left text-white" %><br />
+                <%= f.label :experience,"Experience(years)", class:"pull-left text-white" %><br />
                 <%= f.text_field :experience,class:"form-control" %>
               </div>
               <div class="form-group">
-                <%= f.label :certificate, class:"text-white" %><br />
+                <%= f.label :certificate,"About Certificates Gained", class:"text-white" %><br />
                 <%= f.cktext_area :certificate, ckeditor: { language: 'uk'} %>
               </div>
 
               <div class="form-group">
-                <%= f.label :description, class:"text-white"  %><br />
+                <%= f.label :description,"About Me", class:"text-white"  %><br />
                 <%= f.cktext_area :description, ckeditor: { language: 'uk'} %>
               </div>
 
@@ -116,6 +116,7 @@
               <%= f.submit "Update", class: "btn-primary"%>
             </div>
         <% end %>
+        
       </div><!-- user-login -->
     </div><!-- row -->
   </div><!-- container -->

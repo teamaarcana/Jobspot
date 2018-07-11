@@ -52,9 +52,9 @@
             <% @seeker_profile.seeker_educations.each do |f| %>
               <li>
                 <h4><%= f.education.eduName %></h4>
-                <ul>
+                <ul>  
                   <li>Passed Year: <span><%= f.year %></span> </li>
-                  <li>Collge/School <span><%= f.colzname %></span></li>
+                  <li>College/School: <span><%= f.colzname %></span></li>
 
                 </ul>
               </li>
@@ -68,34 +68,31 @@
         <% end %>
         </div>
 
-      <div class="icons">
-          <i class="fa fa-graduation-cap" aria-hidden="true"></i>
-      </div>
-      <div class="educational-info">
-        <h3>Category</h3>
+        <div class="icons">
+            <i class="fa fa-graduation-cap" aria-hidden="true"></i>
+        </div>
+        <div class="educational-info">
+          <h3>Category</h3>
 
-        <% if @seeker_profile.seeker_categories.present? %>
-          <%= @seeker_profile.seeker_categories.first.category.name %>
-        <% end %>
-      </div>
-</br>
-      <div class="icons">
-          <i class="fa fa-graduation-cap" aria-hidden="true"></i>
-      </div>
-      <div class="educational-info">
-        <h3>Skills</h3>
-        <ul>
-
-          <% if @seeker_profile.seeker_skills.present? %>
-            <% @seeker_profile.seeker_skills.each do |f| %>
-              <h3><%= f.skill.name %> <h3>
-            <% end %>
+          <% if @seeker_profile.seeker_categories.present? %>
+            <%= @seeker_profile.seeker_categories.first.category.name %>
           <% end %>
-
-        </ul>
-
-    </div><!-- educational-background -->
-</br>
+        </div>
+        </br>
+        <div class="icons">
+            <i class="fa fa-graduation-cap" aria-hidden="true"></i>
+        </div>
+        <div class="educational-info">
+          <h3>Skills</h3>
+          <ul>
+            <% if @seeker_profile.seeker_skills.present? %>
+              <% @seeker_profile.seeker_skills.each do |f| %>
+                <span><%= f.skill.name %></span>
+              <% end %>
+            <% end %>
+          </ul>
+        </div><!-- educational-background -->
+      </div>
 
       <div class="special-qualification: section">
         <div class="icons">
@@ -123,7 +120,7 @@
                   <li><h5>Nationality </h5> <span>:</span><%= @seeker_profile.nationality %></li>
                   <li><h5>Sex </h5> <span>:</span><%= @seeker_profile.sex %></li>
                   <li><h5>Preffered Job location </h5> <span>:</span><%= @seeker_profile.prefered_loc %></li>
-                  <li><h5>Job Experience </h5> <span>:</span><%= @seeker_profile.experience %></li>
+                  <li><h5>Job Experience(years) </h5> <span>:</span><%= @seeker_profile.experience %></li>
 
               </ul>
           </div>
