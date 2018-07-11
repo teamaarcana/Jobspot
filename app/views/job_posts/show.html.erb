@@ -76,7 +76,7 @@
               <h3>Category</h3>
 
               <% if @job_post.job_categories.present? %>
-                <%= @job_post.job_categories.first.name %>
+                <%= @job_post.job_categories.first.category.name %>
               <% end %>
             </div>
             </br>
