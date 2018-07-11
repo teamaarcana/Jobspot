@@ -1,4 +1,16 @@
-<h1> Recuitors companies </h1>
+<h3 class="text-center">Recruiting companies</h3>
 <% @recuitor_profiles.each do |recuitor_profile| %>
-  <%= recuitor_profile.company_name %><br>
+	<div class="job-ad-item">
+		<div class="item-info">
+			<div class="ad-info">
+				<span><%= recuitor_profile.company_name %><br></span>
+				<%= recuitor_profile.industry %><br>
+				<%= recuitor_profile.website %><br>
+				<%= recuitor_profile.email %><br>
+				<%= recuitor_profile.contact_no %><br>
+				<%= recuitor_profile.address %><br>
+				<%= recuitor_profile.pan_no %><br>
+			</div>
+		</div>
+	</div>
 <% end %>
