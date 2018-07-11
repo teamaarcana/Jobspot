@@ -1,4 +1,4 @@
 <div class="">
-<%= f.select(:category_id, Category.all.collect {|u| [u.name, u.id]}, :prompt => 'Select') %>
+<%= f.select(:category_id, Category.all.collect {|u| [u.name, u.id]}, { :include_blank => '-- Select One --' }, :required => true) %>
 </div>
 
