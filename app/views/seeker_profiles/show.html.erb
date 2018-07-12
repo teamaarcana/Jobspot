@@ -52,35 +52,24 @@
           </ul>
         </div><!-- educational-background -->
 
-
-      <div class="icons">
-          <i class="fa fa-graduation-cap" aria-hidden="true"></i>
-      </div>
-      <div class="educational-info">
-        <h3>Category</h3>
-
-        <% if @seeker_profile.seeker_categories.present? %>
-          <%= @seeker_profile.seeker_categories.first.category.name %>
-
         <div class="recommendations pull-right" >
           <h3>Recommended Jobs </h3>
         <%  @recommended_jobs.first(10).each do |job| %>
             <%= link_to JobPost.find_by_id(job.last).job_title, job_post_path(job.last) %> </br>
 
         <% end %>
-        </div>
 
-        <div class="icons">
-            <i class="fa fa-graduation-cap" aria-hidden="true"></i>
-        </div>
+
+      <div class="icons">
+          <i class="fa fa-graduation-cap" aria-hidden="true"></i>
+      </div>
         <div class="educational-info">
           <h3>Category</h3>
-
-          <% if @seeker_profile.seeker_categories.present? %>
-            <%= @seeker_profile.seeker_categories.first.category.name %>
-          <% end %>
+            <% if @seeker_profile.seeker_categories.present? %>
+              <%= @seeker_profile.seeker_categories.first.category.name %>
+            <% end %>
         </div>
-        </br>
+        </br> 
         <div class="icons">
             <i class="fa fa-graduation-cap" aria-hidden="true"></i>
         </div>
