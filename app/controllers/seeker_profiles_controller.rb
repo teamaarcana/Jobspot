@@ -11,19 +11,23 @@ class SeekerProfilesController < ApplicationController
   # GET /seeker_profiles/1
   # GET /seeker_profiles/1.json
   def show
-    education =  @seeker_profile.educations.pluck(:eduName)
-    categories = @seeker_profile.categories.pluck(:name)
-    skills =  @seeker_profile.skills.pluck(:name)
-    job = education + categories + skills
+    seeker_education =  @seeker_profile.educations.pluck(:eduName)
+    seeker_categories = @seeker_profile.categories.pluck(:name)
+    seeker_skills =  @seeker_profile.skills.pluck(:name)
+    job = seeker_education + seeker_categories + seeker_skills
     this_jobs = Array.new
     JobPost.all.each do |job|
       education =  job.educations.pluck(:eduName)
       categories = job.categories.pluck(:name)
-      skills =  job.skills.pluck(:name)
-      id = job.id
-      this =  education + categories + skills
-      this.push(id)
-      this_jobs.push(this)
+      if @seeker_profile.educations.maximum(:id) <= job.educations.maximum(:id)
+        if seeker_categories == categories
+          skills =  job.skills.pluck(:name)
+          id = job.id
+          this =  education + categories + skills
+          this.push(id)
+          this_jobs.push(this)
+        end
+      end
     end
     @recommended_jobs = recommendations(this_jobs,job).sort_by { |job| 1 - job.jaccard_index }
     # @recommended_jobs.each do |job|
@@ -65,7 +69,6 @@ class SeekerProfilesController < ApplicationController
   # GET /seeker_profiles/1/edit
   def edit
   #  @seeker_profile.seeker_categories.build
-
   end
 
   # POST /seeker_profiles
