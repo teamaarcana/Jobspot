@@ -95,6 +95,17 @@ end
     location: Faker::Address.city,
     deadline: ""
     })
+      JobCategory.create(category_id: rand(1..8),
+                            job_post_id: x+1
+                            )
+      JobSkill.create(skill_id: rand(1..20),
+                          job_post_id: x+1
+                            )
+      JobEducation.create(education_id: rand(1..6),
+                            job_post_id: x+1,
+                            
+                            )
+      
 end
 Education.create(eduName:"SLC ")
 Education.create(eduName:"Intermediate")

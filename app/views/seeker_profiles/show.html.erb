@@ -51,7 +51,6 @@
             <% end %>
           </ul>
         </div><!-- educational-background -->
-<<<<<<< HEAD
 
 
       <div class="icons">
@@ -62,12 +61,12 @@
 
         <% if @seeker_profile.seeker_categories.present? %>
           <%= @seeker_profile.seeker_categories.first.category.name %>
-=======
+
         <div class="recommendations pull-right" >
           <h3>Recommended Jobs </h3>
         <%  @recommended_jobs.first(10).each do |job| %>
             <%= link_to JobPost.find_by_id(job.last).job_title, job_post_path(job.last) %> </br>
->>>>>>> 06a0ba2f4f5a486e59892735b8434344ff247f05
+
         <% end %>
         </div>
 
