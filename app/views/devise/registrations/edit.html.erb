@@ -9,7 +9,7 @@
 
             <div class="field">
               <%= f.label :email, class:"pull-left text-white" %><br />
-              <%= f.email_field :email, autofocus: true, autocomplete: "email",class:"form-control" %>
+              <%= f.email_field :email, autofocus: true, autocomplete: "email", :required => true, class:"form-control" %>
             </div>
 
             <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
@@ -19,17 +19,17 @@
             <div class="field">
               <%= f.label :password, class:"pull-left text-white" %><em class="pull-left text-white">(<%= @minimum_password_length %> characters minimum)</em>
               <i class="text-white pull-right">(leave blank if you don't want to change it)</i>
-              <%= f.password_field :password, autocomplete: "off",class:"form-control" %>
+              <%= f.password_field :password, autocomplete: "off", :required => true, :pattern=>".{6,}", :title=>"Six or more characters", class:"form-control" %>
             </div>
 
             <div class="field">
               <%= f.label :password_confirmation, class:"pull-left text-white" %><br />
-              <%= f.password_field :password_confirmation, autocomplete: "off",class:"form-control" %>
+              <%= f.password_field :password_confirmation, autocomplete: "off", :required => true, :pattern=>".{6,}", :title=>"Six or more characters", class:"form-control" %>
             </div>
 
             <div class="field">
               <%= f.label :current_password, class:"pull-left text-white" %> <i class="text-white pull-right">(we need your current password to confirm your changes)</i><br />
-              <%= f.password_field :current_password, autocomplete: "off",class:"form-control" %>
+              <%= f.password_field :current_password, autocomplete: "off", :required => true, :pattern=>".{6,}", :title=>"Six or more characters", class:"form-control" %>
             </div>
 
             <div class="actions">

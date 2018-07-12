@@ -15,6 +15,8 @@ class JobPostsController < ApplicationController
 
   def new
     @job_post = JobPost.new
+    @job_post.job_categories.build
+
   end
 
   def create
@@ -49,7 +51,7 @@ class JobPostsController < ApplicationController
   def job_posts_params
     params.require(:job_post).permit(:job_title,:no_of_vacancies,:experience,:description,:deadline,:recuitor_id,:job_type,
   job_educations_attributes: JobEducation.attribute_names.map(&:to_sym),
-  job_category_attributes: [:category_id,:job_post_id,job_skills_attributes:JobSkill.attribute_names.map(&:to_sym)])
+  job_categories_attributes: JobCategory.attribute_names.map(&:to_sym) ,job_skills_attributes:JobSkill.attribute_names.map(&:to_sym))
   end
 
   def job_posts_profile

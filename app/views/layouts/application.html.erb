@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Jobspot - Job Recommender</title>
+    <title>Jobspot - A Job Recommender</title>
     <%= csrf_meta_tags %>
     <%= stylesheet_link_tag    'application', media: 'all' %>
       <%= javascript_include_tag 'application'%>
@@ -24,7 +24,12 @@
               <%= render 'shared/flash_messages' %>
             </div>
           </div>
+<<<<<<< HEAD
         </div>   	
+=======
+        </div>
+        <%= yield %>
+>>>>>>> 06a0ba2f4f5a486e59892735b8434344ff247f05
       </div>
         <div class = "row">
           <%= yield %>

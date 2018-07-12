@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   resources :job_posts
   resources :apply_jobs, only: [:create]
   get 'posted_jobs', to: 'recuitor_profiles#posted_jobs', as: :posted_jobs
+  get 'applied_seeker/:id', to: 'recuitor_profiles#applied_seeker', as: :applied_seeker
+
 
   devise_for :recuitors, path: 'recuitors',controllers: {registrations: 'recuitors/registrations'}
 
