@@ -13,6 +13,43 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+Education.create(eduName:"SLC ")
+Education.create(eduName:"Intermediate")
+Education.create(eduName:"Diploma ")
+Education.create(eduName:"Bachelor")
+Education.create(eduName:"Master")
+Education.create(eduName:"Ph.D.")
+
+Category.create(name: "IT & Telecommunication")
+Category.create(name: "Programmer")
+Category.create(name: "Software Engineer")
+Category.create(name: "Programmer")
+Category.create(name: "Chartered Accountancy")
+Category.create(name: "Graphic Designer")
+Category.create(name: "Administration")
+Category.create(name: "Banking")
+
+Skill.create(name:"Ruby On Rails")
+Skill.create(name:"Java")
+Skill.create(name:"Python")
+Skill.create(name:"ASP.net")
+Skill.create(name:"Leadership")
+Skill.create(name:"Communication")
+Skill.create(name:"Research")
+Skill.create(name:"Writing")
+Skill.create(name:"Reading")
+Skill.create(name:"Teamwork")
+Skill.create(name:"Problem Solving")
+Skill.create(name:"Accountability")
+Skill.create(name:"Driving")
+Skill.create(name:"Troubleshooting")
+Skill.create(name:"Data analysis")
+Skill.create(name:"Strategic Planning")
+Skill.create(name:"Coordinating")
+Skill.create(name:"Strategic thinking")
+Skill.create(name:"Coaching")
+Skill.create(name:"Decision making")
+Skill.create(name:"Advising")
 
 
 
@@ -58,17 +95,7 @@ end
 
 
 
-60.times do |x|
-  JobPost.create({job_title: Faker::Job.title ,
-                  no_of_vacancies: rand(1..5),
-                  experience: rand(0..3),
-                  description: Faker::Lorem.paragraphs,
-                  deadline:Faker::Date.between(2.days.from_now, 25.days.from_now),
-                  job_type: Faker::Job.employment_type,
-                  recuitor_id: rand(1..50),
-                  location: Faker::Address.full_address
-                  })
-end
+
 100.times do |x|
 SeekerCategory.create(category_id: rand(1..8),
                       seeker_profile_id: x+1
@@ -95,41 +122,14 @@ end
     location: Faker::Address.city,
     deadline: ""
     })
+    JobCategory.create({category_id: rand(1..8),
+                          job_post_id: x+1
+                          })
+    JobSkill.create({skill_id: rand(1..20),
+                        job_post_id: x+1
+                          })
+    JobEducation.create({education_id: rand(1..6),
+                          job_post_id: x+1
+
+                          })
 end
-Education.create(eduName:"SLC ")
-Education.create(eduName:"Intermediate")
-Education.create(eduName:"Diploma ")
-Education.create(eduName:"Bachelor")
-Education.create(eduName:"Master")
-Education.create(eduName:"Ph.D.")
-
-Category.create(name: "IT & Telecommunication")
-Category.create(name: "Programmer")
-Category.create(name: "Software Engineer")
-Category.create(name: "Programmer")
-Category.create(name: "Chartered Accountancy")
-Category.create(name: "Graphic Designer")
-Category.create(name: "Administration")
-Category.create(name: "Banking")
-
-Skill.create(name:"Ruby On Rails")
-Skill.create(name:"Java")
-Skill.create(name:"Python")
-Skill.create(name:"ASP.net")
-Skill.create(name:"Leadership")
-Skill.create(name:"Communication")
-Skill.create(name:"Research")
-Skill.create(name:"Writing")
-Skill.create(name:"Reading")
-Skill.create(name:"Teamwork")
-Skill.create(name:"Problem Solving")
-Skill.create(name:"Accountability")
-Skill.create(name:"Driving")
-Skill.create(name:"Troubleshooting")
-Skill.create(name:"Data analysis")
-Skill.create(name:"Strategic Planning")
-Skill.create(name:"Coordinating")
-Skill.create(name:"Strategic thinking")
-Skill.create(name:"Coaching")
-Skill.create(name:"Decision making")
-Skill.create(name:"Advising")
