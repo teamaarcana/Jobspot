@@ -77,7 +77,7 @@ class SeekerProfilesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def seeker_profile_params
-      params.require(:seeker_profile).permit(:first_name,:last_name,:prefered_loc,:sex,:phone_no,
+      params.require(:seeker_profile).permit(:photo,:first_name,:last_name,:prefered_loc,:sex,:phone_no,
                                                                 :experience,:salary,:dob,:nationality,:perm_address,:job_status,:certificate,
                                                                 :temp_address,:description,:seeker_id, seeker_educations_attributes: SeekerEducation.attribute_names.map(&:to_sym),
                                                                 seeker_categories_attributes: SeekerCategory.attribute_names.map(&:to_sym),  seeker_skills_attributes: SeekerSkill.attribute_names.map(&:to_sym))

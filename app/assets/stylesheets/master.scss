@@ -67,7 +67,7 @@ input:focus {
 }
 
 img {
-	max-width: 100%;
+	max-width: 40%;
 }
 
 section {
@@ -1740,7 +1740,11 @@ a.verified i {
 
 .user-profile {
 	overflow: hidden;
-	padding: 0 25px;
+	padding: 0 25px 25px 25px;
+}
+
+img-responsive1{
+	width: 40%;
 }
 
 .user-images {
