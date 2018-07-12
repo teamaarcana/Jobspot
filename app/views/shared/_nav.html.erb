@@ -22,6 +22,8 @@
 						<li><%= link_to 'Companies', recuitor_profiles_path %></li>
 						<% if recuitor_signed_in? %>
 							<li><%= link_to 'Posted Jobs', posted_jobs_path %></li>
+						<% elsif seeker_signed_in?%>
+							<li><%= link_to 'Applied Jobs', applied_jobs_path %></li>
 						<% else %>
 							<li><%= link_to 'Job Details',job_posts_path %></li>
 						<% end %>
