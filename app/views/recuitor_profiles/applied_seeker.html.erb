@@ -8,11 +8,11 @@
 			<div class="tab-content">
 				<h2><%= @job_post.job_title %></h2> <br>
 				<% @applied_seeker.each do |seeker| %>
-				<div class="job-ad-item shadow">
-					<div class="item-info">
-						<div class="ad-info">
-							<span>Name:- <%= link_to profile(seeker.seeker_id),  seeker_profile_path(seeker.seeker_id) %></br>
-								Email:- <%= seeker.seeker.email %>
+				<div class="resume-content shadow">
+      				<div class="profile section clearfix">
+      					<div class="profile-info">
+							<h2>Name: <%= link_to profile(seeker.seeker_id),  seeker_profile_path(seeker.seeker_id) %></br></h2>
+							<email>Email: <%= seeker.seeker.email %></email>
 							<div class="ad-meta">
 							</div>
 						</div>

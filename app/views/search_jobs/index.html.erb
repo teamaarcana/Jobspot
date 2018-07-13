@@ -43,7 +43,6 @@
 									</div><!-- ad-meta -->
 								</div><!-- ad-info -->
 								<% unless recuitor_signed_in? %>
-
 									<div class="button">
 										<%= form_tag(apply_jobs_path,:method => "post") do %>
 											<%= hidden_field_tag "job_post_id", job_post.id %>
