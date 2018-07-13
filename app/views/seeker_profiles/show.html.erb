@@ -96,13 +96,11 @@
         </div>
         <div class="educational-info">
           <h3>Skills</h3>
-          <ul>
-            <% if @seeker_profile.seeker_skills.present? %>
-              <% @seeker_profile.seeker_skills.each do |f| %>
-              <span><%= f.skill.name %>, </span>
-              <% end %>
+          <% if @seeker_profile.seeker_skills.present? %>
+            <% @seeker_profile.seeker_skills.each do |f| %>
+            <h5><%= f.skill.name %></h5>
             <% end %>
-          </ul>
+          <% end %>
         </div><!-- educational-background -->
       </div>
 

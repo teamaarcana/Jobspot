@@ -1,87 +1,92 @@
 <section class="job-bg user-page">
   <div class="container">
     <div class="row text-center">
-      <!-- user-login -->
       <div class="col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
+        <%= form_for @job_post do |f| %>
+          <% if job_post.errors.any? %>
+            <div id="error_explanation">
+              <h2><%= pluralize(job_post.errors.count, "error") %> prohibited this job_post from being saved:</h2>
+
+              <ul>
+              <% job_post.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+              <% end %>
+              </ul>
+            </div>
+          <% end %>
 
 
-<%= form_for @job_post do |f| %>
-  <% if job_post.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(job_post.errors.count, "error") %> prohibited this job_post from being saved:</h2>
 
-      <ul>
+          <div class="tab-content">
+            <div role="tabpanel" class="tab-pane active" id="find-job">
+              <div class="form-group">
+                <%= f.label :job_title, "Job Title",class:"pull-left text-white" %><br />
+                <%= f.text_field :job_title, :required => true, class:"form-control" %>
+              </div>
+              <div class="form-group">
+                <%= f.label :no_of_vacancies, "No. of Vacancies", class:"pull-left text-white" %><br />
+                <%= f.text_field :no_of_vacancies,class:"form-control" %>
+              </div>
+              <div class="field">
+                <%= f.label :experience, "Experience (years)", class:"pull-left text-white" %><br />
+                <%= f.text_field :experience,class:"form-control" %>
+              </div>
+      <!-- <ul>
       <% job_post.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
       
       </ul>
     </div>
-  <% end %>
+  <% end %> -->
 
 
-  <div class="tab-content">
-    <div role="tabpanel" class="tab-pane active" id="find-job">
-      <div class="form-group">
-        <%= f.label :job_title %><br />
-        <%= f.text_field :job_title, :required => true, class:"form-control" %>
-      </div>
-      <div class="form-group">
-        <%= f.label :no_of_vacancies %><br />
-        <%= f.text_field :no_of_vacancies,class:"form-control" %>
-      </div>
-      <div class="field">
-        <%= f.label :experience %><br />
-        <%= f.text_field :experience,class:"form-control" %>
-      </div>
+              <div class="form-group">
+                <%= f.label :education, "Education", class:"pull-left text-white" %><br />
+                <%= f.fields_for :job_educations do |ff| %>
+                  <%= render 'shared/job_education', f: ff %>
+                <% end %>
+                <button type="button" class="btn btn-default pull-left edu">
+                  <%= link_to_add_fields "Add Education", f, :job_educations %>
+                </button>
+              </div>
 
-      <div class="form-group">
-        <%= f.label :education, class:"pull-left text-white" %><br />
-        <%= f.fields_for :job_educations do |ff| %>
-          <%= render 'shared/job_education', f: ff %>
+              <div class="form-group">
+                <%= f.label :category, "Category", class:"pull-left text-white" %><br />
+                <%= f.fields_for :job_categories do |ff| %>
+                  <%= render 'shared/seeker_category', f: ff %>
+                <% end %>
+              </div>
+
+              </br>
+              <div class="form-group">
+                <%= f.label :skills, "Skills", class:"pull-left text-white" %><br />
+                <%= f.fields_for :job_skills do |ff| %>
+                  <%= render 'shared/job_skill', f: ff %>
+                <% end %>
+                <button type="button" class="btn btn-default pull-left skill">
+                  <%= link_to_add_fields "Add Skills", f, :job_skills %>
+                </button>
+              </div>
+
+              <div class="form-group">
+                <%= f.label :deadline, "Deadline", class:"pull-left text-white" %><br />
+                <%= f.text_field :deadline,class:"form-control" %>
+              </div>
+              <div class="form-group">
+                <%= f.label :job_type, "Job Type (FT/PT/Contract)", class:"pull-left text-white" %><br />
+                <%= f.text_field :job_type,class:"form-control" %>
+              </div>
+              <div class="form-group">
+                <%= f.label :description, "Job Details", class:"text-white" %><br />
+                <%= f.cktext_area :description,class:"form-control" %>
+              </div>
+
+              <div class="actions">
+                <%= f.submit "Update", :class => 'btn-primary' %>
+              </div>
         <% end %>
-        <button type="button" class="btn btn-default pull-left edu">
-          <%= link_to_add_fields "Add Education", f, :job_educations %>
-        </button>
       </div>
-
-      <div class="form-group">
-        <%= f.label :category, class:"pull-left text-white" %><br />
-        <%= f.fields_for :job_categories do |ff| %>
-        <h5>hello</h5>
-          <%= render 'shared/seeker_category', f: ff %>
-        <% end %>
-      </div>
-</br>
-      <div class="form-group">
-        <%= f.label :skills, class:"pull-left text-white" %><br />
-        <%= f.fields_for :job_skills do |ff| %>
-          <%= render 'shared/job_skill', f: ff %>
-        <% end %>
-        <button type="button" class="btn btn-default pull-left skill">
-          <%= link_to_add_fields "Add Skills", f, :job_skills %>
-        </button>
-      </div>
-
-      <div class="form-group">
-        <%= f.label :deadline %><br />
-        <%= f.text_field :deadline,class:"form-control" %>
-      </div>
-      <div class="form-group">
-        <%= f.label :job_type %><br />
-        <%= f.text_field :job_type,class:"form-control" %>
-      </div>
-      <div class="form-group">
-        <%= f.label :description %><br />
-        <%= f.cktext_area :description,class:"form-control" %>
-      </div>
-
-
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
-</div><!-- user-login -->
-</div><!-- row -->
-</div><!-- container -->
-</section><!-- signup-page -->
+    </div><!-- row -->
+  </div><!-- container -->
+</section>

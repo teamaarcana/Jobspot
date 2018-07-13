@@ -50,9 +50,7 @@
                 <%= f.label :category, class:"pull-left text-white" %><br />
                 <%= f.fields_for :seeker_categories do |ff| %>
                   <%= render 'shared/seeker_category', f: ff %>
-
                 <% end %>
-
               </div>
 
               <div class="form-group">
