@@ -6,12 +6,13 @@
 			</div>
 
 			<div class="tab-content">
-				<h4><%= @job_post.job_title %></h4> <br>
+				<h2><%= @job_post.job_title %></h2> <br>
 				<% @applied_seeker.each do |seeker| %>
 				<div class="job-ad-item shadow">
 					<div class="item-info">
 						<div class="ad-info">
-							<span><a href="job-details.html" class="title"><%= link_to profile(seeker.seeker_id),  seeker_profile_path(seeker.seeker_id) %></br>
+							<span>Name:- <%= link_to profile(seeker.seeker_id),  seeker_profile_path(seeker.seeker_id) %></br>
+								Email:- <%= seeker.seeker.email %>
 							<div class="ad-meta">
 							</div>
 						</div>
