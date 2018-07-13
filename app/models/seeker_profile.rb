@@ -12,4 +12,7 @@ class SeekerProfile < ApplicationRecord
   has_many :seeker_skills, dependent: :destroy
   has_many :skills, :through => :seeker_skills
   accepts_nested_attributes_for :seeker_skills
+
+  mount_uploader :photo, PhotoUploader
+  mount_uploader :attachment, AttachmentUploader
 end
