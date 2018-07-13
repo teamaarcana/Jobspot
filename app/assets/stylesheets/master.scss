@@ -250,8 +250,17 @@ i.fa.fa-window-restore {
     box-shadow: 5px 5px 20px #3d4044;
 }
 .recommendations.pull-right{
-	width: 70%;
+	width: 50%;
 }
+
+.recommendations.pull-right.shadow {
+	margin-top: -15%;
+	padding-left: 20px;
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+
+
 
 /* Breadcrumb */
 
@@ -1765,7 +1774,7 @@ a.verified i {
 }
 
 .img-responsive1{
-	width: 40%;
+	width: 25%;
 }
 
 .user-images {
