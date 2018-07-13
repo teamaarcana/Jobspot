@@ -32,6 +32,27 @@
         </div>
       </div><!-- profile -->
 
+      <div class="personal-deatils section">
+          <div class="icons">
+              <i class="fa fa-user-secret" aria-hidden="true"></i>
+          </div>
+          <div class="personal-info">
+            <h3>Personal Details</h3>
+              <ul class="address">
+                  <li><h5>Full Name </h5> <span>:</span><%= @seeker_profile.first_name %> <%= @seeker_profile.last_name %></li>
+
+                  <li><h5>Date of Birth </h5> <span>:</span><%= @seeker_profile.dob %></li>
+                  <li><h5>Permanent Address </h5> <span>:</span><%= @seeker_profile.perm_address %></li>
+                  <li><h5>Temporary Address </h5> <span>:</span><%= @seeker_profile.temp_address %></li>
+                  <li><h5>Nationality </h5> <span>:</span><%= @seeker_profile.nationality %></li>
+                  <li><h5>Sex </h5> <span>:</span><%= @seeker_profile.sex %></li>
+                  <li><h5>Preffered Job location </h5> <span>:</span><%= @seeker_profile.prefered_loc %></li>
+                  <li><h5>Job Experience(years) </h5> <span>:</span><%= @seeker_profile.experience %></li>
+
+              </ul>
+          </div>
+      </div><!-- personal-deatils -->
+
       <div class="educational-background section">
         <div class="icons">
             <i class="fa fa-graduation-cap" aria-hidden="true"></i>
@@ -54,10 +75,9 @@
 
         <div class="recommendations pull-right" >
           <h3>Recommended Jobs </h3>
-
-          <%  @recommended_jobs.first(10).each do |job| %>
+           <%  @recommended_jobs.first(10).each do |job| %>
               <%= link_to JobPost.find_by_id(job.last).job_title, job_post_path(job.last) %> </br>
-          <% end %>
+           <% end %>
         </div>
 
 
@@ -79,7 +99,7 @@
           <ul>
             <% if @seeker_profile.seeker_skills.present? %>
               <% @seeker_profile.seeker_skills.each do |f| %>
-                <span><%= f.skill.name %></span>
+              <span><%= f.skill.name %>, </span>
               <% end %>
             <% end %>
           </ul>
@@ -97,26 +117,6 @@
         </div>
       </div><!-- educational-background -->
 
-      <div class="personal-deatils section">
-          <div class="icons">
-              <i class="fa fa-user-secret" aria-hidden="true"></i>
-          </div>
-          <div class="personal-info">
-            <h3>Personal Deatils</h3>
-              <ul class="address">
-                  <li><h5>Full Name </h5> <span>:</span><%= @seeker_profile.first_name %> <%= @seeker_profile.last_name %></li>
-
-                  <li><h5>Date of Birth </h5> <span>:</span><%= @seeker_profile.dob %></li>
-                  <li><h5>Permanent Address </h5> <span>:</span><%= @seeker_profile.perm_address %></li>
-                  <li><h5>Temporary Address </h5> <span>:</span><%= @seeker_profile.temp_address %></li>
-                  <li><h5>Nationality </h5> <span>:</span><%= @seeker_profile.nationality %></li>
-                  <li><h5>Sex </h5> <span>:</span><%= @seeker_profile.sex %></li>
-                  <li><h5>Preffered Job location </h5> <span>:</span><%= @seeker_profile.prefered_loc %></li>
-                  <li><h5>Job Experience(years) </h5> <span>:</span><%= @seeker_profile.experience %></li>
-
-              </ul>
-          </div>
-      </div><!-- personal-deatils -->
 
       <div class="declaration section">
             <div class="icons">

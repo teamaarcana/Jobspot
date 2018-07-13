@@ -232,6 +232,23 @@ button.btn.btn-default.pull-left.skill {
 	margin-bottom: 15px;
 }
 
+i.fa.fa-window-restore {
+	padding-right: 10px;
+}
+
+.section.latest-jobs-ads.bg {
+	background-color: #00a651;
+}
+
+.job-ad-item.block {
+	width: 50%;
+	margin-left: 25%;
+}
+
+.shadow {
+    padding: 10px;
+    box-shadow: 5px 5px 20px #3d4044;
+}
 .recommendations.pull-right{
 	width: 70%;
 }
@@ -2231,6 +2248,7 @@ input:-moz-placeholder {
 	border: 1px solid #f3f3f3;
 	margin: 18px 0;
 	border-radius:2px;
+	background-color: white;
 }
 
 .job-ad-item .ad-meta {
