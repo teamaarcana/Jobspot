@@ -14,5 +14,5 @@ class SeekerProfile < ApplicationRecord
   accepts_nested_attributes_for :seeker_skills
 
   mount_uploader :photo, PhotoUploader
-  mount_uploader :attachment, AttachmentUploader
+#  mount_uploader :attachment, AttachmentUploader
 end

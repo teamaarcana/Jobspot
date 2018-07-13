@@ -21,5 +21,6 @@
 /yarn-error.log
 /db/schema.rb
 /config/database.yml
+/public/uploads/*
 .byebug_history
 config/database.yml
