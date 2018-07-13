@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180712050047) do
+ActiveRecord::Schema.define(version: 20180713060353) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -90,6 +90,7 @@ ActiveRecord::Schema.define(version: 20180712050047) do
     t.string "industry"
     t.string "website"
     t.string "email"
+    t.string "photo"
     t.index ["recuitor_id"], name: "index_recuitor_profiles_on_recuitor_id"
   end
 

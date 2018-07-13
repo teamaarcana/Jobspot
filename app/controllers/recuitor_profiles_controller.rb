@@ -51,7 +51,7 @@ class RecuitorProfilesController < ApplicationController
 
   private
   def recuitor_profile_params
-    params.require(:recuitor_profile).permit(:company_name,:contact_no,:address,:pan_no,:description,:recuitor_id)
+    params.require(:recuitor_profile).permit(:photo,:company_name,:contact_no,:address,:pan_no,:description,:recuitor_id)
   end
 
   def set_recuitor_profile
