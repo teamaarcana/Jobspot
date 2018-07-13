@@ -1,16 +1,31 @@
-<h3 class="text-center">Recruiting companies</h3>
-<% @recuitor_profiles.each do |recuitor_profile| %>
-	<div class="job-ad-item">
-		<div class="item-info">
-			<div class="ad-info">
-				<span><%= recuitor_profile.company_name %><br></span>
-				<%= recuitor_profile.industry %><br>
-				<%= recuitor_profile.website %><br>
-				<%= recuitor_profile.email %><br>
-				<%= recuitor_profile.contact_no %><br>
-				<%= recuitor_profile.address %><br>
-				<%= recuitor_profile.pan_no %><br>
+<div class="container">
+	<div class="row">
+		<div class="section latest-jobs-ads">
+			<div class="section-title tab-manu">
+				<h3 class="text-white">Recruiting Companies</h3>
 			</div>
+
+			<% @recuitor_profiles.each do |recuitor_profile| %>
+				<div class="job-ad-item block">
+					<div class="item-info">
+						<div class="ad-info">
+							<span><%= recuitor_profile.company_name %><br></span>
+							<ul>
+								<li>Industry : <%= recuitor_profile.industry %><br></li>
+								<li>Website : <%= recuitor_profile.website %><br></li>
+								<li>Email : <%= recuitor_profile.email %><br></li>
+								<li>Contact No.: <%= recuitor_profile.contact_no %><br></li>
+								<li>Address : <%= recuitor_profile.address %><br></li>
+								<li>PAN No.: <%= recuitor_profile.pan_no %><br></li>
+							</ul>
+						</div>
+						<div class="button">
+							<button>Applied</button>
+						</div>
+					</div>
+				</div>
+			<% end %>
+
 		</div>
 	</div>
-<% end %>
+</div>

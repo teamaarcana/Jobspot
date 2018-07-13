@@ -232,6 +232,14 @@ button.btn.btn-default.pull-left.skill {
 	margin-bottom: 15px;
 }
 
+i.fa.fa-window-restore {
+	padding-right: 10px;
+}
+
+.job-ad-item.block {
+	width: 50%;
+	margin-left: 25%;
+}
 
 /* Breadcrumb */
 
@@ -2224,6 +2232,7 @@ input:-moz-placeholder {
 	border: 1px solid #f3f3f3;
 	margin: 18px 0;
 	border-radius:2px;
+	background-color: white;
 }
 
 .job-ad-item .ad-meta {
