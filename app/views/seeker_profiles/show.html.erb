@@ -9,24 +9,14 @@
     </div><!-- breadcrumb-section -->
 
     <div class="job-profile section">
-      <!-- <div class="user-profile">
+      <div class="user-profile">
         <div class="user-images">
-          <img src="images/user.jpg" alt="User Images" class="img-responsive">
+          <%= image_tag @seeker_profile.photo, class: "img-responsive1", alt: "User Images" %>
         </div>
         <div class="user">
           <h2>Hello, <a href="#"><%= @seeker_profile.first_name %></a></h2>
         </div>
-
-        <div class="favorites-user">
-          <div class="my-ads">
-            <a href="applied-job.html">29<small>Apply Job</small></a>
-          </div>
-          <div class="favorites">
-            <a href="bookmark.html">18<small>Favorites</small></a>
-          </div>
-        </div>
       </div><!-- user-profile -->
-
     </div><!-- ad-profile -->
 
     <div class="resume-content">
@@ -61,24 +51,26 @@
             <% end %>
           </ul>
         </div><!-- educational-background -->
+
         <div class="recommendations pull-right" >
           <h3>Recommended Jobs </h3>
+
           <%  @recommended_jobs.first(10).each do |job| %>
               <%= link_to JobPost.find_by_id(job.last).job_title, job_post_path(job.last) %> </br>
           <% end %>
         </div>
 
-        <div class="icons">
-            <i class="fa fa-graduation-cap" aria-hidden="true"></i>
-        </div>
+
+      <div class="icons">
+          <i class="fa fa-graduation-cap" aria-hidden="true"></i>
+      </div>
         <div class="educational-info">
           <h3>Category</h3>
-
-          <% if @seeker_profile.seeker_categories.present? %>
-            <%= @seeker_profile.seeker_categories.first.category.name %>
-          <% end %>
+            <% if @seeker_profile.seeker_categories.present? %>
+              <%= @seeker_profile.seeker_categories.first.category.name %>
+            <% end %>
         </div>
-        </br>
+        </br> 
         <div class="icons">
             <i class="fa fa-graduation-cap" aria-hidden="true"></i>
         </div>
