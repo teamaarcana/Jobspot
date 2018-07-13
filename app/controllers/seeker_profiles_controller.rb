@@ -19,7 +19,7 @@ class SeekerProfilesController < ApplicationController
     JobPost.all.each do |job|
       education =  job.educations.pluck(:eduName)
       categories = job.categories.pluck(:name)
-      if @seeker_profile.educations.maximum(:id) <= job.educations.maximum(:id)
+      if @seeker_profile.educations.maximum(:id) >= job.educations.maximum(:id)
         if seeker_categories == categories
           skills =  job.skills.pluck(:name)
           id = job.id
@@ -110,6 +110,9 @@ class SeekerProfilesController < ApplicationController
     end
   end
 
+  def applied_jobs
+    @applied_jobs= current_seeker.apply_jobs
+  end
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_seeker_profile
