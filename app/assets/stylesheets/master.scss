@@ -67,7 +67,7 @@ input:focus {
 }
 
 img {
-	max-width: 100%;
+	max-width: 40%;
 }
 
 section {
@@ -248,6 +248,9 @@ i.fa.fa-window-restore {
 .shadow {
     padding: 10px;
     box-shadow: 5px 5px 20px #3d4044;
+}
+.recommendations.pull-right{
+	width: 70%;
 }
 
 /* Breadcrumb */
@@ -1758,7 +1761,11 @@ a.verified i {
 
 .user-profile {
 	overflow: hidden;
-	padding: 0 25px;
+	padding: 0 25px 25px 25px;
+}
+
+.img-responsive1{
+	width: 40%;
 }
 
 .user-images {

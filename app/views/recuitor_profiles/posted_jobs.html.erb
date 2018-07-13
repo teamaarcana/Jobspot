@@ -19,6 +19,8 @@
 								</ul>
 							</div><!-- ad-meta -->
 						</div><!-- ad-info -->
+
+						<%= button_to "Delete", job_post_path(job_post) ,method: :delete, data: { confirm: "Are you sure?" }, method: :delete , class:"btn-danger" %>
 					</div>
 				</div>
 				<% end %>

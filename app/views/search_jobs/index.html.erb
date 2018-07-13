@@ -6,16 +6,7 @@
 		<div class="banner-form">
       <%= form_tag(root_path, :method => "get") do %>
 				<%= search_field_tag :search, params[:search], placeholder: "Search", :required => true, class: "form-control" %>
-				<div class="dropdown category-dropdown">
-					<a data-toggle="dropdown" href="#"><span class="change-text">Job Location</span> <i class="fa fa-angle-down"></i></a>
-					<ul class="dropdown-menu category-change">
-						<li><a href="#">Kathmandu</a></li>
-						<li><a href="#">Lalitpur</a></li>
-						<li><a href="#">Bhaktapur</a></li>
-					</ul>
-				</div><!-- category-change -->
         <%= button_tag "Search", :class => 'btn btn-primary'%>
-
         <% end %>
 
 		</div><!-- banner-form -->
@@ -65,12 +56,9 @@
 								<% end %>
 							</div><!-- item-info -->
 						</div><!-- ad-item -->
-					<% end %>				
+					<% end %>
 				</div><!-- tab-pane -->
 				<div class="digg_pagination clearfix text-center">
-					<div class="page_info">
-					<%= page_entries_info @job_posts %>
-					</div>
 					<%= will_paginate @job_posts, :container => false %>
 				</div>
 		</div><!-- trending ads -->
