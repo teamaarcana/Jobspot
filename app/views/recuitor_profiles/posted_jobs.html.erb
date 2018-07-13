@@ -7,18 +7,22 @@
 
 			<div class="tab-content">
 				<% @job_posts.each do |job_post| %>
-				<div class="job-ad-item">
+				<div class="job-ad-item shadow">
 					<div class="item-info">
 						<div class="ad-info">
 							<span><a href="job-details.html" class="title"><%= link_to job_post.job_title, applied_seeker_path(job_post) %></a></span>
 							<div class="ad-meta">
 								<ul>
-									<li><i class="fa fa-map-marker" aria-hidden="true"></i><%= job.job_post.location %></li>
-									<li><i class="fa fa-clock-o" aria-hidden="true"></i><%= job.job_post.job_type %></li>
-									<li><i class="fa fa-tags" aria-hidden="true"></i><%= job.job_post.department %></li>
+									<!-- <li><i class="fa fa-map-marker" aria-hidden="true"></i><%= job_post.location %></li> -->
+									<li><i class="fa fa-clock-o" aria-hidden="true"></i><%= job_post.job_type %></li>
+									<!-- <li><i class="fa fa-tags" aria-hidden="true"></i><%= job_post.department %></li> -->
 								</ul>
 							</div><!-- ad-meta -->
 						</div><!-- ad-info -->
-						<!--<%= button_to "Delete", ??? , data: { confirm: "Are you sure?" }, method: :delete , class:"btn-danger" %>-->
 					</div>
+				</div>
 				<% end %>
+			</div>
+		</div>
+	</div>
+</div>

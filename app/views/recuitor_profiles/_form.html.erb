@@ -18,50 +18,47 @@
         <% end %>
 
 
-  <div class="tab-content">
-              <div role="tabpanel" class="tab-pane active" id="find-job">
-                <div class="form-group">
-                  <%= f.label :company_name %><br />
-                  <%= f.text_field :company_name, :required => true, class:"form-control" %>
-                </div>
-                <div class="form-group">
-                  <%= f.label :contact_no %><br />
-                  <%= f.text_field :contact_no, :required => true, class:"form-control" %>
-                </div>
-                <div class="field">
-                  <%= f.label :address %><br />
-                  <%= f.text_field :address, :required => true, class:"form-control" %>
-                </div>
-                <div class="form-group">
-                  <%= f.label :pan_no %><br />
-                  <%= f.text_field :pan_no,class:"form-control" %>
-                </div>
-
-                <div class="form-group">
-                  <%= f.label :industry %><br />
-                  <%= f.text_field :industry, :required => true, class:"form-control" %>
-                </div>
-
+        <div class="tab-content">
+          <div role="tabpanel" class="tab-pane active" id="find-job">
+            <div class="form-group">
+              <%= f.label :company_name, class:"pull-left text-white" %><br />
+              <%= f.text_field :company_name, :required => true, class:"form-control" %>
+            </div>
+            <div class="form-group">
+              <%= f.label :contact_no, class:"pull-left text-white" %><br />
+              <%= f.text_field :contact_no, :required => true, class:"form-control" %>
+            </div>
+            <div class="field">
+              <%= f.label :address, class:"pull-left text-white" %><br />
+              <%= f.text_field :address, :required => true, class:"form-control" %>
+            </div>
+            <div class="form-group">
+              <%= f.label :pan_no, class:"pull-left text-white" %><br />
+              <%= f.text_field :pan_no,class:"form-control" %>
+            </div>
 
             <div class="form-group">
-              <%= f.label :website %><br />
+              <%= f.label :industry, class:"pull-left text-white" %><br />
+              <%= f.text_field :industry, :required => true, class:"form-control" %>
+            </div>
+
+            <div class="form-group">
+              <%= f.label :website, class:"pull-left text-white" %><br />
               <%= f.text_field :website,class:"form-control" %>
             </div>
 
-                <div class="form-group">
-                  <%= f.label :email %><br />
-                  <%= f.email_field :email, class:"form-control", autofocus: true, autocomplete: "email" %>
-                </div>
-
+            <div class="form-group">
+              <%= f.label :email, class:"pull-left text-white" %><br />
+              <%= f.email_field :email, class:"form-control", autofocus: true, autocomplete: "email" %>
+            </div>
 
             <div class="form-group">
-              <%= f.label :description %><br />
+              <%= f.label :description, class:"text-white" %><br />
               <%= f.cktext_area :description, class: 'someclass', ckeditor: { language: 'uk'} %>
             </div>
 
-
             <div class="actions">
-              <%= f.submit %>
+              <%= f.submit, class: "btn-primary" %>
             </div>
           <% end %>
           </div><!-- user-login -->
