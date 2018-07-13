@@ -1,12 +1,12 @@
 <div class="container">
 	<div class="row">
-		<div class="section latest-jobs-ads">
+		<div class="section latest-jobs-ads bg">
 			<div class="section-title tab-manu">
 				<h3 class="text-white">Recruiting Companies</h3>
 			</div>
 
 			<% @recuitor_profiles.each do |recuitor_profile| %>
-				<div class="job-ad-item block">
+				<div class="job-ad-item block shadow">
 					<div class="item-info">
 						<div class="ad-info">
 							<span><%= recuitor_profile.company_name %><br></span>
@@ -18,9 +18,6 @@
 								<li>Address : <%= recuitor_profile.address %><br></li>
 								<li>PAN No.: <%= recuitor_profile.pan_no %><br></li>
 							</ul>
-						</div>
-						<div class="button">
-							<button>Applied</button>
 						</div>
 					</div>
 				</div>

@@ -7,7 +7,7 @@
 
 			<div class="tab-content">
 				<% @applied_jobs.each do |job| %>
-				<div class="job-ad-item">
+				<div class="job-ad-item shadow">
 					<div class="item-info">
 						<div class="ad-info">
 							<span><a href="job-details.html" class="title"><%=link_to job.job_post.job_title, job_post_path(job.job_post) %></br>
