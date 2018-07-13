@@ -31,16 +31,6 @@
                 <%= f.label :experience, "Experience (years)", class:"pull-left text-white" %><br />
                 <%= f.text_field :experience,class:"form-control" %>
               </div>
-      <!-- <ul>
-      <% job_post.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      
-      </ul>
-    </div>
-  <% end %> -->
-
-
               <div class="form-group">
                 <%= f.label :education, "Education", class:"pull-left text-white" %><br />
                 <%= f.fields_for :job_educations do |ff| %>
