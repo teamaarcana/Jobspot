@@ -13,14 +13,15 @@
         <div class="user-images pull-left">
           <%= image_tag @seeker_profile.photo, class: "img-responsive1", alt: "User Images" %>
         </div>
-
-        <div class="recommendations pull-right shadow" >
-          <h3><i class="fa fa-briefcase" aria-hidden="true"></i> Recommended Jobs </h3>
-          <hr>
-           <%  @recommended_jobs.first(10).each do |job| %>
-              <%= link_to JobPost.find_by_id(job.last).job_title, job_post_path(job.last) %> </br>
-           <% end %>
-        </div>
+        <% if seeker_signed_in? %>
+          <div class="recommendations pull-right shadow" >
+            <h3><i class="fa fa-briefcase" aria-hidden="true"></i> Recommended Jobs </h3>
+            <hr>
+            <%  @recommended_jobs.first(10).each do |job| %>
+            <%= link_to JobPost.find_by_id(job.last).job_title, job_post_path(job.last) %> </br>
+            <% end %>
+          </div>
+        <% end %>
 
         <div class="user">
           <h2>Hello, <a href="#"><%= @seeker_profile.first_name %>!</a></h2>
@@ -86,7 +87,7 @@
           </ul>
         </div><!-- educational-background -->
 
-        
+
 
 
       <div class="icons">
