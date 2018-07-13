@@ -14,9 +14,11 @@
           <%= image_tag @seeker_profile.photo, class: "img-responsive1", alt: "User Images" %>
         </div>
         <div class="user">
-          <h2>Hello, <a href="#"><%= @seeker_profile.first_name %></a></h2>
-          <%= link_to "Download Resume", @seeker_profile.attachment_url, target: "_blank" %>
-        </div>
+          <h2>Hello, <a href="#"><%= @seeker_profile.first_name %></a></h2> 
+        </div></br>
+        <div class="download-button resume">
+          <%= link_to "View Resume", @seeker_profile.attachment_url, target: "_blank", class: "btn" %>
+        </div> 
       </div><!-- user-profile -->
     </div><!-- ad-profile -->
 
@@ -128,9 +130,6 @@
               <p><%= raw @seeker_profile.description %></p>
             </div>
       </div><!-- career-objective -->
-      <!-- <div class="download-button resume">
-        <a href="#" class="btn">Download Resume as doc</a>
-      </div> -->
     </div><!-- resume-content -->
 
 
