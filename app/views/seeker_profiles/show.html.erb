@@ -37,8 +37,11 @@
         <div class="profile-info">
             <h1>Full Name:- <%= @seeker_profile.first_name %> <%= @seeker_profile.last_name %></h1>
             <address>
-                <p>Address: <%= @seeker_profile.perm_address %> <br> Phone:<%= @seeker_profile.phone_no %><br> </p>
+                <p>Address: <%= @seeker_profile.perm_address %> <br><br> Phone:<%= @seeker_profile.phone_no %><br> </p>
             </address>
+            <email>
+              Email:- <%= @seeker_profile.seeker.email %>
+            </email>
         </div>
       </div><!-- profile -->
 
@@ -73,7 +76,7 @@
             <% @seeker_profile.seeker_educations.each do |f| %>
               <li>
                 <h4><%= f.education.eduName %></h4>
-                <ul>  
+                <ul>
                   <li>Passed Year: <span><%= f.year %></span> </li>
                   <li>College/School: <span><%= f.colzname %></span></li>
 
@@ -95,7 +98,7 @@
               <%= @seeker_profile.seeker_categories.first.category.name %>
             <% end %>
         </div>
-        </br> 
+        </br>
         <div class="icons">
             <i class="fa fa-graduation-cap" aria-hidden="true"></i>
         </div>
