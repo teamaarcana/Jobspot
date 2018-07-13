@@ -24,6 +24,7 @@
 						<li><%= link_to 'Companies', recuitor_profiles_path %></li>
 						<% if recuitor_signed_in? %>
 							<li><%= link_to 'Posted Jobs', posted_jobs_path %></li>
+							<li><%= link_to "Post Job", new_job_post_path, :class => 'btn btn-primary fa fa-briefcase'%></li>
 						<% elsif seeker_signed_in?%>
 							<li><%= link_to 'Applied Jobs', applied_jobs_path %></li>
 						<% else %>
