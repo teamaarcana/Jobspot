@@ -15,4 +15,8 @@ class SeekerProfile < ApplicationRecord
 
   mount_uploader :photo, PhotoUploader
   mount_uploader :attachment, AttachmentUploader
+
+  validates_presence_of :first_name,:last_name,:phone_no,
+                        :sex, :dob, :nationality
+
 end
