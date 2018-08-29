@@ -21,7 +21,7 @@ RSpec.describe SeekerProfile, type: :model do
     it { should validate_presence_of(:dob) }
   end
 
-  describe ".recommendations" do
+  describe "#recommendations" do
     let(:jobs){
       [["Bachelor", "Administration", "ASP.net", 5],
        ["Diploma ", "Administration", "Writing", 7],
@@ -45,21 +45,6 @@ RSpec.describe SeekerProfile, type: :model do
       ["SLC ", "Intermediate", "Bachelor", "Administration", "Teamwork", "ASP.net", "Ruby On Rails"]
     }
 
-    let(:category){ create(:category, name: "Administration")}
-    let(:category1){ create(:category, name: "Banking")}
-    let(:skill){ create(:skill, name: "Accountability")}
-    let(:education3){ create(:education, eduName: "Ph.D.")}
-    let(:education2){ create(:education, eduName: "Master")}
-    let(:education1) {create(:education)}
-    let(:education){ create(:education, eduName: "SLC")}
-    let(:seeker_profile) { create(:seeker_profile)}
-    let(:seeker_profile1) { create(:seeker_profile)}
-    let(:seeker_profile2) { create(:seeker_profile)}
-    let(:job_post) {create(:job_post)}
-    let(:job_post1) {create(:job_post)}
-    let(:job_post2) {create(:job_post)}
-    let(:job_post3) {create(:job_post)}
-
     it "returns recommended jobs " do
       expect(subject.recommendations(jobs,seeker_skills).sort_by { |job| 1 - job.jaccard_index }).to eq [
         ["Bachelor", "Administration", "ASP.net", 5],
@@ -74,83 +59,70 @@ RSpec.describe SeekerProfile, type: :model do
        ["Diploma ", "Administration", "Accountability", 88]
       ]
     end
-    describe "invalid condition" do
+    context "invalid condition" do
       it "invalid jobs" do
         expect(subject.recommendations(invalid_jobs,seeker_skills).sort_by { |job| 1 - job.jaccard_index }).to be_empty
       end
       it "invalid seeker skills" do
-        expect(subject.recommendations(jobs,invalid_seeker_skills).sort_by { |job| 1 - job.jaccard_index }).to be_empty
-      end
-    end
-    describe 'recommended_jobs' do
-      subject(:seeker) { seeker_profile }
-      subject(:seeker1) { seeker_profile1 }
-      subject(:seeker2) { seeker_profile2 }
-      subject(:job) {job_post}
-      subject(:job1) {job_post1}
-      subject(:job2) {job_post2}
-      subject(:job3) {job_post3}
-      dummy = Array.new
-      before do
-        job.skills << skill
-        job.educations << education
-        job.categories << category
-
-        job1.skills << skill
-        job1.educations << education1
-        job1.categories << category
-
-
-        job2.skills << skill
-        job2.educations << education2
-        job2.categories << category
-
-        job3.skills << skill
-        job3.educations << education3
-        job3.categories << category
-
-        seeker.skills << skill
-        seeker.educations << education1
-        seeker.categories << category
-
-        seeker1.skills << skill
-        seeker1.educations << education3
-        seeker1.categories << category
-
-        seeker2.skills << skill
-        seeker2.educations << education
-        seeker2.categories << category
-      end
-      context 'recommended_jobs' do
-
-        it "mid id education" do
-          # expect(2).to be >= 1
-          # expect(seeker.categories).to eq(job.categories)
-          # dummy << job.skills
-          # dummy << job.educations
-          # dummy << job.categories
-          # dummy << job.id
-          # dummy.should include (1
-          expect(seeker.recommended_jobs). to eq [
-            ["Bachelor", "Administration", "Accountability", job1.id],
-            ["SLC", "Administration", "Accountability", job.id]
-          ]
-        end
-
-         it "lowest id education" do
-           expect(seeker2.recommended_jobs).to eq []
-         end
-
-         it "highest id education" do
-           expect(seeker1.recommended_jobs).to eq [
-             ["Ph.D.", "Administration", "Accountability", job3.id],
-             ["SLC", "Administration", "Accountability", job.id],
-             ["Bachelor", "Administration", "Accountability", job1.id],
-             ["Master", "Administration", "Accountability", job2.id]
-           ]
-         end
+        expect(subject.recommendations(jobs,invalid_seeker_skills)
+          .sort_by { |job| 1 - job.jaccard_index }).to be_empty
       end
     end
   end
+  describe '#recommended_jobs' do
+    let(:category){ create(:category, name: "Administration")}
+    let(:category1){ create(:category, name: "Banking")}
+    let(:skill){ create(:skill, name: "Accountability")}
+    let(:education3){ create(:education, eduName: "Ph.D.")}
+    let(:education2){ create(:education, eduName: "Master")}
+    let(:education1) {create(:education)}
+    let(:education){ create(:education, eduName: "SLC")}
+    let(:seeker_profile) { create(:seeker_profile,skills: [skill], educations: [education1],categories: [category] )}
+    let(:seeker_profile1) { create(:seeker_profile,skills: [skill], educations: [education3],categories: [category])}
+    let(:seeker_profile2) { create(:seeker_profile,skills: [skill], educations: [education],categories: [category])}
+    let(:job_post) {create(:job_post, skills: [skill], educations: [education],categories: [category])}
+    let(:job_post1) {create(:job_post, skills: [skill], educations: [education1],categories: [category])}
+    let(:job_post2) {create(:job_post, skills: [skill], educations: [education2],categories: [category])}
+    let(:job_post3) {create(:job_post, skills: [skill], educations: [education3],categories: [category])}
+
+
+    before do
+      job_post
+      job_post1
+      job_post2
+      job_post3
+      seeker_profile
+      seeker_profile1
+      seeker_profile2
+    end
+    context 'recommended_jobs' do
+     context 'with mid education id ' do
+        it "gives correct reult" do
+          jobs = [
+            ["Bachelor", "Administration", "Accountability", job_post1.id],
+            ["SLC", "Administration", "Accountability", job_post.id]
+          ]
+          expect(seeker_profile.recommended_jobs). to eq (jobs)
+        end
+      end
+
+     context 'with lowest education id '
+       it "gives last job" do
+         job = [["SLC", "Administration", "Accountability",job_post.id ]]
+         expect(seeker_profile2.recommended_jobs).to eq (job)
+       end
+     end
+
+     context 'with highest education id' do
+       it "gives all jobs" do
+         jobs = [
+           ["Ph.D.", "Administration", "Accountability", job_post3.id],
+           ["SLC", "Administration", "Accountability", job_post.id],
+           ["Bachelor", "Administration", "Accountability", job_post1.id],
+           ["Master", "Administration", "Accountability", job_post2.id]
+         ]
+         expect(seeker_profile1.recommended_jobs).to eq (jobs)
+       end
+     end
+  end
 end
-1
