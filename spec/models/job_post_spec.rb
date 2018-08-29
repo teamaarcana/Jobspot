@@ -1,6 +1,10 @@
 require 'rails_helper'
 
 RSpec.describe JobPost, type: :model do
+  it "has a valid factory" do
+    expect(build(:job_post).valid?).to be true
+  end
+
   describe "Associations" do
     it {should belong_to(:recuitor)}
     it {should  have_many(:job_educations).dependent(:destroy)}

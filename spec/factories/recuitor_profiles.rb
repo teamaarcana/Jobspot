@@ -11,6 +11,6 @@ FactoryBot.define do
     email {"test  @test.com"}
   end
   factory :invalid_recuitor_profile, parent: :recuitor_profile do |f|
-    firstname nil
+    company_name nil
   end
 end
