@@ -7,8 +7,11 @@ jQuery ->
     $(this).closest('fieldset').hide()
     event.preventDefault()
 
+  id = 0
   $('form').on 'click', '.add_fields', (event) ->
-    time = new Date().getTime()
-    regexp = new RegExp($(this).data('id'), 'g')
-    $(this).before($(this).data('fields').replace(regexp, time))
+    alert('test')
+    id += 1
+    $link = $(this).find('a')
+    regexp = new RegExp($link.data('id'), 'g')
+    $(this).before($link.data('fields').replace(regexp, id))
     event.preventDefault()
