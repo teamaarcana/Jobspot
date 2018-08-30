@@ -9,7 +9,6 @@ jQuery ->
 
   id = 0
   $('form').on 'click', '.add_fields', (event) ->
-    alert('test')
     id += 1
     $link = $(this).find('a')
     regexp = new RegExp($link.data('id'), 'g')

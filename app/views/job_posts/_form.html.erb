@@ -54,7 +54,7 @@
                 <%= f.fields_for :job_skills do |ff| %>
                   <%= render 'shared/job_skill', f: ff %>
                 <% end %>
-                <button type="button" class="btn btn-default pull-left skill">
+                <button type="button" class="btn btn-default pull-left skill add_fields">
                   <%= link_to_add_fields "Add Skills", f, :job_skills %>
                 </button>
               </div>
