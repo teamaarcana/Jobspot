@@ -1,6 +1,7 @@
 class SeekerProfilesController < ApplicationController
   before_action :set_seeker_profile, only: [:show, :edit, :update, :destroy]
   before_action :is_owner?, only: [:edit, :update, :destroy, :index]
+  before_action :authenticate_seeker!, only: [:edit, :update, :destroy,:new,:create]
 
   # GET /seeker_profiles
   # GET /seeker_profiles.json
