@@ -96,8 +96,6 @@ RSpec.feature "Homepages", type: :feature do
       fill_in "No. of Vacancies", :with=> 3
       fill_in "Experience (years)", :with => "3 yrs"
       click_button("Add Education")
-    
-
       select('Programming', :from=>'job_post_job_categories_attributes_0_category_id')
       fill_in "Deadline", :with => "20 Aug 2018"
       fill_in "Job Type (FT/PT/Contract)", :with=> "Contract"
