@@ -1,6 +1,7 @@
 class RecuitorProfilesController < ApplicationController
  before_action :set_recuitor_profile, only: [:show, :edit, :update, :destroy]
  before_action :is_owner?, only: [:edit, :update, :destroy]
+ before_action :authenticate_recuitor!, only: [:edit, :update, :destroy,:new,:create]
 
   def index
     @recuitor_profiles = RecuitorProfile.order("created_at DESC").paginate(:page => params[:page], :per_page => 10)
