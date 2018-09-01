@@ -11,7 +11,12 @@ $(document).ready ->
     $(this).before($link.data('fields').replace(regexp, id))
     event.preventDefault()
     return
+  $(document).on 'click', '.remove_fields', (event) ->
+    $(this).prev('input[type=hidden]').val('1')
+    $(this).closest('fieldset').hide()
+    event.preventDefault()
   return
+
 
 # alternative
 # $(document).on 'turbolinks:load', ->
