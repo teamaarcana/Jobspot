@@ -21,45 +21,5 @@
 </div><!-- banner-section -->
 
 <div class="page">
-	<div class="container">
-		<div class="section latest-jobs-ads">
-			<div class="section-title tab-manu">
-				<h4>Latest Jobs</h4>
-
-				 <!-- Nav tabs -->
-			</div>
-				<div>
-					<% @job_posts.each do |job_post| %>
-						<div class="job-ad-item shadow">
-							<div class="item-info">
-								<div class="ad-info">
-									<span><a href="job-details.html" class=title><%= link_to  job_post.job_title ,  job_post_path(job_post) %></a>
-									<div class="ad-meta">
-										<ul>
-											<li><i class="fa fa-map-marker" aria-hidden="true"></i><%= job_post.location %></li>
-											<li><i class="fa fa-clock-o" aria-hidden="true"></i><%= job_post.job_type %></li>
-											<li><i class="fa fa-tags" aria-hidden="true"></i><%= job_post.department %></li>
-										</ul>
-									</div><!-- ad-meta -->
-								</div><!-- ad-info -->
-								<% unless recuitor_signed_in? %>
-									<div class="button">
-										<%= form_tag(apply_jobs_path,:method => "post") do %>
-											<%= hidden_field_tag "job_post_id", job_post.id %>
-											<% if seeker_signed_in? %>
-												<%= hidden_field_tag "seeker_id", current_seeker.id %>
-											<% end %>
-											<%= button_tag "Apply Now", :class => 'btn btn-primary', data: { confirm: 'Do you want to apply for this job' }%>
-										<% end %>
-									</div>
-								<% end %>
-							</div><!-- item-info -->
-						</div><!-- ad-item -->
-					<% end %>
-				</div><!-- tab-pane -->
-				<div class="digg_pagination clearfix text-center">
-					<%= will_paginate @job_posts, :container => false %>
-				</div>
-		</div><!-- trending ads -->
-	</div>
+	<%= render 'shared/job_post_details' %>
 </div>
