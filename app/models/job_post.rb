@@ -25,4 +25,15 @@ class JobPost < ApplicationRecord
                     skills: [:name],
                     categories: [:name]
                   }
+  def self.fuzzy_search(query)
+    query = query.downcase
+    query_reg = /#{query.split('').join('.*?')}/
+    sorted = []
+    self.all.each do |string|
+        match = query_reg.match string.job_title.downcase
+        sorted << {string: string, rank: match.to_s.length} if match
+    end
+    sorted.sort_by! {|i| i[:rank] }
+    sorted.map{|arr| arr[:string]}
+  end
 end
