@@ -21,4 +21,20 @@ RSpec.describe JobPost, type: :model do
     it {should have_many(:skills)}
     it {should accept_nested_attributes_for(:job_skills)}
   end
+  describe '#fuzzy_search' do
+    let(:job){create :job_post}
+    let(:job1){create :job_post, job_title: "Internal Marketing"}
+    before(:each) do
+      job
+      job1
+    end
+    it 'gives required result' do
+      query = 'internal'
+      expect(JobPost.fuzzy_search(query)).to eq ([job1])
+    end
+    it 'gives required empty result' do
+      query = 'xyz '
+      expect(JobPost.fuzzy_search(query)).to eq ([])
+    end
+  end
 end
