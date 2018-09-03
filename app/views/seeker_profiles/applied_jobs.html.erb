@@ -6,27 +6,28 @@
 			</div>
 
 			<div class="tab-content">
-				<% @applied_jobs.each do |job| %>
-				<div class="job-ad-item shadow">
-					<div class="item-info">
-						<div class="ad-info">
-							<span><a href="job-details.html" class="title"><%=link_to job.job_post.job_title, job_post_path(job.job_post) %></br>
-							<div class="ad-meta">
-								<ul>
-									<li><i class="fa fa-map-marker" aria-hidden="true"></i><%= job.job_post.location %></li>
-									<li><i class="fa fa-clock-o" aria-hidden="true"></i><%= job.job_post.job_type %></li>
-									<li><i class="fa fa-tags" aria-hidden="true"></i><%= job.job_post.department %></li>
-								</ul>
-							</div><!-- ad-meta -->
-						</div><!-- ad-info -->
+				<% if @applied_jobs.nil? %>
+					<% @applied_jobs.each do |job|  %>
+					<div class="job-ad-item shadow">
+						<div class="item-info">
+							<div class="ad-info">
+								<span><a href="job-details.html" class="title"><%=link_to job.job_post.job_title, job_post_path(job.job_post) %></br>
+								<div class="ad-meta">
+									<ul>
+										<li><i class="fa fa-map-marker" aria-hidden="true"></i><%= job.job_post.location %></li>
+										<li><i class="fa fa-clock-o" aria-hidden="true"></i><%= job.job_post.job_type %></li>
+										<li><i class="fa fa-tags" aria-hidden="true"></i><%= job.job_post.department %></li>
+									</ul>
+								</div><!-- ad-meta -->
+							</div><!-- ad-info -->
 
+						</div>
 					</div>
-				</div>
+					<% end %>
+				<% else %>
+				  <h3> You have not applied to any jobs. </h3>
 				<% end %>
 			</div>
 		</div>
 	</div>
 </div>
-
-  
-
