@@ -3,7 +3,7 @@ class ApplyJobsController < ApplicationController
 
   def create
     if current_seeker.present?
-      @apply_job = ApplyJob.create(apply_jobs_params)
+      @apply_job = ApplyJob.find_or_create_by(apply_jobs_params)
       redirect_to root_path
     else
       flash[:alert] = "Please sign in first"

@@ -21,11 +21,11 @@
             <%= link_to JobPost.find_by_id(job.last).job_title, job_post_path(job.last) %> </br>
             <% end %>
           </div>
+          <div class="user">
+            <h2>Hello, <a href="#"><%= @seeker_profile.first_name %>!</a></h2>
+          </div>
         <% end %>
 
-        <div class="user">
-          <h2>Hello, <a href="#"><%= @seeker_profile.first_name %>!</a></h2>
-        </div>
       </div><!-- user-profile -->
 
     </div><!-- ad-profile -->
