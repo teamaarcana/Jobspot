@@ -7,14 +7,14 @@
 
 
 namespace :server_db do
-  REPO_DIR = '~/new/backup'
+  REPO_DIR = '~/colz_project/Jobspot/backup'
 
   desc 'Backup DB and commit into git repo'
   task :backup do
      `git clone git@github.com:ran010/backup.git #{REPO_DIR}` if !Dir.exist?(REPO_DIR)
     yml = YAML.load_file('config/database.yml')['development']
-    `PGPASSWORD="#{ENV['dbpassword']}" pg_dump -h localhost -p 5432 -U #{ENV['dbuser']} #{ENV['dbname']} > #{REPO_DIR}/db2.sql`
-    `cd #{REPO_DIR} && git add . && git commit -m 'daily backup' && git push origin master`
+    `PGPASSWORD="#{ENV['dbpassword']}" pg_dump -h localhost -p 5432 -U #{ENV['dbuser']} #{ENV['dbname']} > #{REPO_DIR}/db.sql`
+    `cd #{REPO_DIR} && git add . && git commit -m 'daily backup'`
   end
 
   # desc 'Restore db from latest dump (grabbed code from capistrano-db-tasks gem)'
