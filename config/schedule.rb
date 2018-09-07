@@ -19,5 +19,8 @@
 
 # Learn more: http://github.com/javan/whenever
 every 1.day, at: '12:00 am' do
-  rake jobs:delete_jobs
+  rake "jobs:delete_jobs"
+end
+every 1.day, at: '11:32 am' do
+  rake "server_db:delete_jobs"
 end
