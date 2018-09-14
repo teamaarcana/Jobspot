@@ -69,6 +69,10 @@ class SeekerProfilesController < ApplicationController
     end
   end
 
+   def my_destroy
+     binding.pry
+   end
+
   def applied_jobs
     @applied_jobs= current_seeker.apply_jobs.includes(:job_post)
   end

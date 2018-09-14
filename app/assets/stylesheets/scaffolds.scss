@@ -1,6 +1,6 @@
 body {
   background-color: #fff;
-  color: #333;  
+  color: #333;
   font-family: verdana, arial, helvetica, sans-serif;
   font-size: 13px;
   line-height: 18px;
@@ -61,6 +61,8 @@ div {
   padding: 7px 7px 0;
   margin-bottom: 20px;
   background-color: #f0f0f0;
+  width: 50%;
+  margin: 0 auto;
 
   h2 {
     text-align: left;
@@ -74,7 +76,6 @@ div {
 
   ul li {
     font-size: 12px;
-    list-style: square;
   }
 }
 

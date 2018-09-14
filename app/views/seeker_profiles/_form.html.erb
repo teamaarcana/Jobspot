@@ -1,19 +1,19 @@
 <section class="job-bg user-page">
+  <% if seeker_profile.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(seeker_profile.errors.count, "error") %> prohibited this seeker_profile from being saved:</h2>
+    <ul>
+      <% seeker_profile.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+  <% end %>
   <div class="container">
     <div class="row text-center">
       <!-- user-login -->
       <div class="col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
         <%= form_for @seeker_profile do |f| %>
-          <% if seeker_profile.errors.any? %>
-            <div id="error_explanation">
-              <h2><%= pluralize(seeker_profile.errors.count, "error") %> prohibited this seeker_profile from being saved:</h2>
-              <ul>
-                <% seeker_profile.errors.full_messages.each do |message| %>
-                  <li><%= message %></li>
-                <% end %>
-              </ul>
-            </div>
-          <% end %>
 
           <div class="tab-content">
             <div role="tabpanel" class="tab-pane active" id="find-job">

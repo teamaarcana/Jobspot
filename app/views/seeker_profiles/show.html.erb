@@ -12,7 +12,9 @@
       <div class="user-profile pull-left">
         <div class="user-images pull-left">
           <%= image_tag @seeker_profile.photo, class: "img-responsive1", alt: "User Images" %>
+
         </div>
+
         <% if seeker_signed_in? %>
           <div class="recommendations pull-right shadow" >
             <h3><i class="fa fa-briefcase" aria-hidden="true"></i> Recommended Jobs </h3>
@@ -27,6 +29,9 @@
         <% end %>
 
       </div><!-- user-profile -->
+      <div class="downloadCV">
+        <%= link_to "Download CV", @seeker_profile.attachment.url, target: "_blank", :class => 'btn btn-primary %>
+      </div>
 
     </div><!-- ad-profile -->
 
