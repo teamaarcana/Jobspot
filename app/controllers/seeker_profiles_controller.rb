@@ -15,9 +15,6 @@ class SeekerProfilesController < ApplicationController
     @recommended_jobs = @seeker_profile.recommended_jobs
   end
 
-
-
-
   # GET /seeker_profiles/new
   def new
     @seeker_profile = SeekerProfile.new
@@ -26,7 +23,6 @@ class SeekerProfilesController < ApplicationController
     #    @seeker_profile.seeker_skills.build
     #  end
       @seeker_profile.seeker_categories.build
-
   end
 
   # GET /seeker_profiles/1/edit
@@ -73,8 +69,12 @@ class SeekerProfilesController < ApplicationController
     end
   end
 
+   def my_destroy
+     binding.pry
+   end
+
   def applied_jobs
-    @applied_jobs= current_seeker.apply_jobs
+    @applied_jobs= current_seeker.apply_jobs.includes(:job_post)
   end
   private
     # Use callbacks to share common setup or constraints between actions.

@@ -1,19 +1,19 @@
 <section class="job-bg user-page">
+  <% if seeker_profile.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(seeker_profile.errors.count, "error") %> prohibited this seeker_profile from being saved:</h2>
+    <ul>
+      <% seeker_profile.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+  <% end %>
   <div class="container">
     <div class="row text-center">
       <!-- user-login -->
       <div class="col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
         <%= form_for @seeker_profile do |f| %>
-          <% if seeker_profile.errors.any? %>
-            <div id="error_explanation">
-              <h2><%= pluralize(seeker_profile.errors.count, "error") %> prohibited this seeker_profile from being saved:</h2>
-              <ul>
-                <% seeker_profile.errors.full_messages.each do |message| %>
-                  <li><%= message %></li>
-                <% end %>
-              </ul>
-            </div>
-          <% end %>
 
           <div class="tab-content">
             <div role="tabpanel" class="tab-pane active" id="find-job">
@@ -37,37 +37,35 @@
               </div>
               <br />
               <div class="form-group">
-                <%= f.label :education, class:"pull-left text-white" %><br />
+                <%= f.label :education, class:"text-white" %><br />
                 <%= f.fields_for :seeker_educations do |ff| %>
                   <%= render 'shared/seeker_education', f: ff %>
                 <% end %>
-                <button type="button" class="btn btn-default pull-left edu add_fields">
+                <button type="button" class="btn btn-default edu add_fields">
                   <%= link_to_add_fields "Add Education", f, :seeker_educations %>
                 </button>
               </div>
 
               <div class="form-group">
-                <%= f.label :category, class:"pull-left text-white" %><br />
+                <%= f.label :category, class:"text-white" %><br />
                 <%= f.fields_for :seeker_categories do |ff| %>
                   <%= render 'shared/seeker_category', f: ff %>
                 <% end %>
               </div>
 
               <div class="form-group">
-                <%= f.label :skills, class:"pull-left text-white" %><br />
+                <%= f.label :skills, class:"text-white" %><br />
                 <%= f.fields_for :seeker_skills do |ff| %>
                   <%= render 'shared/seeker_skill', f: ff %>
                 <% end %>
-                <button type="button" class="btn btn-default pull-left skill add_fields">
+                <button type="button" class="btn btn-default  skill add_fields">
                   <%= link_to_add_fields "Add Skills", f, :seeker_skills %>
                 </button>
               </div>
-
               <div class="form-group">
                 <%= f.label :prefered_loc,"Preferred Location", class:"pull-left text-white" %><br />
                 <%= f.text_field :prefered_loc,class:"form-control" %>
               </div>
-
               <div class="form-group">
                 <%= f.label :salary,"Expected Salary", class:"pull-left text-white" %><br />
                 <%= f.text_field :salary,class:"form-control" %>
@@ -102,12 +100,13 @@
               </div>
               <div class="form-group">
                 <%= f.label :certificate,"About Certificates Gained", class:"text-white" %><br />
-                <%= f.cktext_area :certificate, ckeditor: { language: 'uk'} %>
+                <%= f.cktext_area :certificate, class:"form-control" %>
               </div>
 
               <div class="form-group">
                 <%= f.label :description,"About Me", class:"text-white"  %><br />
-                <%= f.cktext_area :description, ckeditor: { language: 'uk'} %>
+                <%= f.cktext_area :description, class:"form-control" %>
+
               </div>
 
               <div class="form-group">
