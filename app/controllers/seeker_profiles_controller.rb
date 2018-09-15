@@ -11,9 +11,9 @@ class SeekerProfilesController < ApplicationController
 
   # GET /seeker_profiles/1
   # GET /seeker_profiles/1.json
-  def show
-    @recommended_jobs = @seeker_profile.recommended_jobs
-  end
+  # def show
+  #   @recommended_jobs = @seeker_profile.recommended_jobs
+  # end
 
   # GET /seeker_profiles/new
   def new
@@ -68,10 +68,6 @@ class SeekerProfilesController < ApplicationController
       format.json { head :no_content }
     end
   end
-
-   def my_destroy
-     binding.pry
-   end
 
   def applied_jobs
     @applied_jobs= current_seeker.apply_jobs.includes(:job_post)
