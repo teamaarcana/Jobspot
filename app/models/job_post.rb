@@ -1,6 +1,5 @@
 class JobPost < ApplicationRecord
   include PgSearch
-
   belongs_to :recuitor
 
   has_many :job_educations, dependent: :destroy
@@ -18,7 +17,7 @@ class JobPost < ApplicationRecord
   has_many :skills, :through => :job_skills
   accepts_nested_attributes_for :job_skills
 
-  # 
+  #
   # pg_search_scope :quick_search,
   #                 against: [:job_title,:location],
   #                 associated_against: {
