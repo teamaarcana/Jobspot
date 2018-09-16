@@ -64,13 +64,14 @@ Skill.create(name:"Advising")
                               salary: rand(1000..10000),
                               dob: Faker::Date.between(50.year.ago, 10.year.ago),
                               nationality: "Nepalese",
+                              sex: "male",
                               perm_address:  Faker::Address.city,
                               temp_address:  Faker::Address.city,
                               experience: rand(1..3),
                               description: Faker::Lorem.paragraphs,
                               job_status: [true, false].sample,
                               certificate: "",
-                              seeker_id: x+1
+                              seeker_id: 1
 
         })
 end

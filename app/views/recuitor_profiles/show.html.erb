@@ -33,7 +33,11 @@
     <div class="resume-content">
       <div class="profile section clearfix">
         <div class="profile-logo">
-
+          <div class="user-images pull-left">
+            <% if @recuitor_profile.photo.present? %>
+              <%= image_tag @recuitor_profile.photo, class: "img-responsive1", alt: "Company Images" %>
+            <% end %>
+          </div>
             <!-- <img class="img-responsive" src="images/job/resume.jpg" alt="Image"> -->
         </div>
         <div class="profile-info">

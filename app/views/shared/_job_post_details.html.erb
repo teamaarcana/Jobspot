@@ -42,7 +42,6 @@
         <div role="tabpanel" class="tab-pane fade in" id="recommended-jobs">
           <% if seeker_signed_in? %>
               <%  @recommended_jobs.first(10).each do |job| %>
-
                 <%= link_to JobPost.find_by_id(job.last).job_title, job_post_path(job.last) %> </br>
               <% end %>
         <% end %>
