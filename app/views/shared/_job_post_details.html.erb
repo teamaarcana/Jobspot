@@ -39,23 +39,46 @@
                   </div><!-- ad-item -->
                 <% end %>
             </div>
+        <div>
+      </div><!-- tab-pane -->
+
         <div role="tabpanel" class="tab-pane fade in" id="recommended-jobs">
-          <% if seeker_signed_in? %>
-              <%  @recommended_jobs.first(10).each do |job| %>
-                <%= link_to JobPost.find_by_id(job.last).job_title, job_post_path(job.last) %> </br>
-              <% end %>
-        <% end %>
+           <% if seeker_signed_in? %>
+             <%  @recommended_jobs.first(10).each do |job| %>
+               <div class="job-ad-item shadow">
+                 <div class="item-info">
+                   <div class="ad-info">
+                     <span><%= link_to JobPost.find_by_id(job.last).job_title, job_post_path(job.last) %></span> </br>
+
+                     <div class="ad-meta">
+                       <ul>
+                         <li><i class="fa fa-map-marker" aria-hidden="true"></i><%= JobPost.find_by_id(job.last).location %></li>
+                         <li><i class="fa fa-clock-o" aria-hidden="true"></i><%= JobPost.find_by_id(job.last).job_type %></li>
+                         <li><i class="fa fa-tags" aria-hidden="true"></i><%= JobPost.find_by_id(job.last).department %></li>
+                       </ul>
+                     </div><!-- ad-meta -->
+                   </div><!-- ad-info -->
+                   <% unless recuitor_signed_in? %>
+                     <div class="button">
+                       <%= form_tag(apply_jobs_path,:method => "post") do %>
+                         <%= hidden_field_tag "job_id", JobPost.find_by_id(job.last).id %>
+                         <% if seeker_signed_in? %>
+                           <%= hidden_field_tag "seeker_id", current_seeker.id %>
+                         <% end %>
+                         <%= button_tag "Apply Now", :class => 'btn btn-primary', data: { confirm: 'Do you want to apply for this job' }%>
+                       <% end %>
+                     </div>
+                   <% end %>
+                 </div><!-- item-info -->
+               </div><!-- ad-item -->
+             <% end %>
+          <% end %>
         </div>
       <div>
+    </div>
 
-      </div><!-- tab-pane -->
-      <div class="digg_pagination clearfix text-center">
-        <%= will_paginate @job_posts, :container => false %>
-      </div>
-
-      <div>
-
-      </div>
+    <div class="digg_pagination clearfix text-center">
+      <%= will_paginate @job_posts, :container => false %>
+    </div>  
   </div><!-- trending ads -->
-
 </div>
