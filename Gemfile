@@ -18,6 +18,10 @@ gem "font-awesome-rails"
 #gem 'rails-erd', group: :development
 gem 'ckeditor'
 gem 'faker'
+gem 'activeadmin'
+gem 'cancan' 
+gem 'draper'
+gem 'pundit'
 gem 'pg_search'
 # Use Puma as the app server
 gem 'puma', '~> 3.7'

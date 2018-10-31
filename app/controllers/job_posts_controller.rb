@@ -10,7 +10,6 @@ class JobPostsController < ApplicationController
   def show
     recuitor = Recuitor.find_by_id(@job_post.recuitor_id)
     @recuitor_profile = recuitor.recuitor_profile
-
   end
 
   def new
@@ -41,11 +40,11 @@ class JobPostsController < ApplicationController
         render :edit, status: :unprocessable_entity
      end
     end
-    def destroy
-        @job_post = JobPost.find(params[:id])
-        @job_post.destroy
-        redirect_to root_path
-    end
+  def destroy
+    @job_post = JobPost.find(params[:id])
+    @job_post.destroy
+    redirect_to root_path
+  end
 
   private
   def job_posts_params
