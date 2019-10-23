@@ -1,6 +1,7 @@
 class SeekerProfilesController < ApplicationController
   before_action :set_seeker_profile, only: [:show, :edit, :update, :destroy]
   before_action :is_owner?, only: [:edit, :update, :destroy, :index]
+  before_action :authenticate_seeker!, only: [:edit, :update, :destroy,:new,:create]
 
   # GET /seeker_profiles
   # GET /seeker_profiles.json
@@ -10,28 +11,29 @@ class SeekerProfilesController < ApplicationController
 
   # GET /seeker_profiles/1
   # GET /seeker_profiles/1.json
-  def show
-  end
+  # def show
+  #   @recommended_jobs = @seeker_profile.recommended_jobs
+  # end
 
   # GET /seeker_profiles/new
   def new
     @seeker_profile = SeekerProfile.new
-    # @seeker_profile.seeker_educations.build
-    # @seeker_profile.seeker_category.build
+    #  5.times do
+    #    @seeker_profile.seeker_educations.build
+    #    @seeker_profile.seeker_skills.build
+    #  end
+      @seeker_profile.seeker_categories.build
   end
 
   # GET /seeker_profiles/1/edit
   def edit
-  #   @seeker_profile.seeker_educations.build
-  #  @seeker_profile.seeker_category.seeker_skills.build
-
+  #  @seeker_profile.seeker_categories.build
   end
 
   # POST /seeker_profiles
   # POST /seeker_profiles.json
   def create
     @seeker_profile =  current_seeker.create_seeker_profile(seeker_profile_params)
-
     respond_to do |format|
       if @seeker_profile.save
         format.html { redirect_to root_path, notice: 'Seeker profile was successfully created.' }
@@ -67,6 +69,9 @@ class SeekerProfilesController < ApplicationController
     end
   end
 
+  def applied_jobs
+    @applied_jobs= current_seeker.apply_jobs.includes(:job_post)
+  end
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_seeker_profile
@@ -75,10 +80,10 @@ class SeekerProfilesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def seeker_profile_params
-      params.require(:seeker_profile).permit(:first_name,:last_name,:prefered_loc,:sex,:phone_no,
+      params.require(:seeker_profile).permit(:attachment,:photo,:first_name,:last_name,:prefered_loc,:sex,:phone_no,
                                                                 :experience,:salary,:dob,:nationality,:perm_address,:job_status,:certificate,
                                                                 :temp_address,:description,:seeker_id, seeker_educations_attributes: SeekerEducation.attribute_names.map(&:to_sym),
-                                                                seeker_category_attributes: [:category_id,:seeker_profile_id,seeker_skills_attributes:  SeekerSkill.attribute_names.map(&:to_sym)])
+                                                                seeker_categories_attributes: SeekerCategory.attribute_names.map(&:to_sym),  seeker_skills_attributes: SeekerSkill.attribute_names.map(&:to_sym))
     end
 
     def is_owner?

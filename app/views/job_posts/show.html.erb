@@ -23,6 +23,8 @@
           </div><!-- ad-info -->
         </div><!-- item-info -->
         <div class="social-media">
+          <% unless recuitor_signed_in? %>
+
           <div class="button">
             <div class="button">
               <%= form_tag(apply_jobs_path,:method => "post") do %>
@@ -30,6 +32,7 @@
                 <%= button_tag "Apply Now", :class => 'btn btn-primary fa fa-briefcase', data: { confirm: 'Do you want to apply for this job' }%>
                 <% end %>
             </div>
+            <% end %>
             <!-- <a href="#" class="btn btn-primary"><i class="fa fa-briefcase" aria-hidden="true"></i>Apply For This Job</a> -->
           </div>
           <!-- <ul class="share-social">
@@ -49,11 +52,38 @@
           <div class="col-sm-8">
             <div class="section job-description">
               <div class="description-info">
-                <h1>Description</h1>
+                <h3>Description</h3>
                   <p><%= raw @job_post.description %>
+
               </div>
+              <div class="educational-info">
+                <h3><i class="fa fa-graduation-cap" aria-hidden="true"></i>Education Background</h3>
+
+                  <% @job_post.job_educations.each do |f| %>
+                      <h5><%= f.education.eduName %></h5>
+                  <% end %>
+              </div><!-- educational-background -->
+
+              <div class="educational-info">
+                <h3><i class="fa fa-graduation-cap" aria-hidden="true"></i>Category</h3>
+
+                <% if @job_post.job_categories.present? %>
+                  <%= @job_post.job_categories.first.category.name %>
+                <% end %>
+              </div>
+
+              <div class="educational-info">
+                <h3><i class="fa fa-graduation-cap" aria-hidden="true"></i>Skills</h3>
+
+                  <% if @job_post.job_skills.present? %>
+                    <% @job_post.job_skills.each do |f| %>
+                      <h5><%= f.skill.name %> <h5>
+                    <% end %>
+                  <% end %>
+              </div><!-- educational-background -->
             </div>
           </div>
+
           <div class="col-sm-4">
             <div class="section company-info">
               <h1>Company Info</h1>

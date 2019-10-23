@@ -1,0 +1,23 @@
+<div class="container">
+	<div class="row">
+		<div class="section latest-jobs-ads">
+			<div class="section-title tab-manu">
+				<h3 class="text-center">Applied seeker for posted jobs</h3>
+			</div>
+
+			<div class="tab-content">
+				<h2><%= @job_post.job_title %></h2> <br>
+				<% @applied_seeker.each do |seeker| %>
+				<div class="resume-content shadow">
+      				<div class="profile section clearfix">
+      					<div class="profile-info">
+							<h2>Name: <%= link_to profile(seeker.seeker_id),  seeker_profile_path(seeker.seeker_id) %></br></h2>
+							<email>Email: <%= seeker.seeker.email %></email>					
+						</div>
+					</div>
+				</div>
+				<% end %>
+			</div>
+		</div>
+	</div>
+</div>

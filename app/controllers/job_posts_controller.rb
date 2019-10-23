@@ -4,17 +4,18 @@ class JobPostsController < ApplicationController
   before_action :authenticate_recuitor!, only: [:edit, :update, :destroy,:new,:create]
 
   def index
-    @job_posts = JobPost.order("created_at DESC").all
+    @job_posts = JobPost.order("created_at DESC").paginate(:page => params[:page], :per_page => 10)
   end
 
   def show
     recuitor = Recuitor.find_by_id(@job_post.recuitor_id)
     @recuitor_profile = recuitor.recuitor_profile
-
   end
 
   def new
     @job_post = JobPost.new
+    @job_post.job_categories.build
+
   end
 
   def create
@@ -39,17 +40,17 @@ class JobPostsController < ApplicationController
         render :edit, status: :unprocessable_entity
      end
     end
-    def destroy
-        @job_post = JobPost.find(params[:id])
-        @job_post.destroy
-        redirect_to root_path
-    end
+  def destroy
+    @job_post = JobPost.find(params[:id])
+    @job_post.destroy
+    redirect_to root_path
+  end
 
   private
   def job_posts_params
     params.require(:job_post).permit(:job_title,:no_of_vacancies,:experience,:description,:deadline,:recuitor_id,:job_type,
   job_educations_attributes: JobEducation.attribute_names.map(&:to_sym),
-  job_category_attributes: [:category_id,:job_post_id,job_skills_attributes:JobSkill.attribute_names.map(&:to_sym)])
+  job_categories_attributes: JobCategory.attribute_names.map(&:to_sym) ,job_skills_attributes:JobSkill.attribute_names.map(&:to_sym))
   end
 
   def job_posts_profile

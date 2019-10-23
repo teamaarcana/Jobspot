@@ -67,7 +67,7 @@ input:focus {
 }
 
 img {
-	max-width: 100%;
+	max-width: 40%;
 }
 
 section {
@@ -169,12 +169,109 @@ textarea {
 	background-color: transparent;
 }
 
+label.pull-left.text-white {
+	color: white;
+}
+
+.text-white {
+	color: white;
+}
+
+h3.text-center {
+	color: #00a651;
+}
+
+ol li a{
+	color: white !important;
+}
+
+input.btn-primary {
+	width: 100%;
+}
+
+label.text-white {
+	text-align: left;
+}
+
+a.btn.text-white {
+	color: white;
+}
+
+a.fa.fa-sign-out {
+	margin-left: -10px;
+}
+
+.form-group.inline.pull-left {
+	display: -webkit-inline-box;
+}
+
+label#male {
+	margin-right: 20px;
+}
+
+label#female {
+	margin-left: 20px;
+	margin-right: 20px;
+}
+
+.form-group.sex {
+	margin-bottom: 30px;
+}
+
+button.btn.btn-default.pull-left.edu {
+	//margin-left: -64px;
+	margin-top: 5px;
+	width: 100%;
+	margin-bottom: 15px;
+}
+
+button.btn.btn-default.pull-left.skill {
+	//margin-left: -35px;
+	margin-top: 5px;
+	width: 100%;
+	margin-bottom: 15px;
+}
+
+i.fa.fa-window-restore {
+	padding-right: 10px;
+}
+
+.section.latest-jobs-ads.bg {
+	background-color: #00a651;
+}
+
+.job-ad-item.block {
+	width: 50%;
+	margin-left: 25%;
+}
+
+.shadow {
+    padding: 10px;
+    box-shadow: 5px 5px 20px #3d4044;
+}
+.recommendations.pull-right{
+	width: 50%;
+}
+
+.recommendations.pull-right.shadow {
+	margin-top: -15%;
+	padding-left: 20px;
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+
+input.btn.btn-danger {
+	margin-top: 30%;
+}
+
+
 
 /* Breadcrumb */
 
 .breadcrumb-section h2.title {
 	margin-top: 0;
 	margin-bottom: 32px;
+	color: white;
 }
 
 .breadcrumb-section .breadcrumb {
@@ -201,6 +298,14 @@ textarea {
 
 .navbar {
 	margin: 0;
+
+}
+
+.navbar-fixed {
+  top: 0;
+  z-index: 100;
+  position: fixed;
+  width: 100%;
 }
 
 .nav li a,
@@ -234,9 +339,6 @@ textarea {
 	color: #00a651;
 }
 
-a.fa.fa-key {
-	margin-left: -10px;
-}
 
 .dropdown-menu {
 	border-radius: 0;
@@ -309,7 +411,6 @@ a.fa.fa-key {
 	position: absolute;
 	left: 0;
 	top: 50%;
-	background-image: url(../images/1.png);
 	background-repeat: no-repeat;
 	width: 7px;
 	height: 14px;
@@ -428,7 +529,7 @@ a.fa.fa-key {
 	max-width: 114px;
 	background-color: #00a651;
 	border-radius: 0 5px 5px 0 ;
-	color: #fff;
+	//color: #fff;
 	text-transform: uppercase;
 	border-color:#00a651;
 	-webkit-transition: all 0.3s ease-in-out;
@@ -801,6 +902,7 @@ a.verified i {
 .breadcrumb {
 	background-color: transparent;
 	padding-left: 0;
+	color: white;
 }
 
 .breadcrumb li,
@@ -811,7 +913,7 @@ a.verified i {
 .breadcrumb>li+li:before {
 	content: "\f101";
 	font-family: FontAwesome;
-	
+
 }
 
 #something-sell h2.title {
@@ -1671,7 +1773,11 @@ a.verified i {
 
 .user-profile {
 	overflow: hidden;
-	padding: 0 25px;
+	padding: 0 25px 25px 25px;
+}
+
+.img-responsive1{
+	width: 25%;
 }
 
 .user-images {
@@ -1686,7 +1792,6 @@ a.verified i {
 
 .job-profile .user {
 	float: left;
-	padding-left: 30px;
 }
 
 .job-profile .user h2 {
@@ -2072,7 +2177,7 @@ input:-moz-placeholder {
 ========================================================================== */
 
 .banner-job {
-	background-image: url(../../assets/background.jpg);
+	background-image: url(../../assets/banner.jpg);
 	background-repeat: no-repeat;
 	background-size: cover;
 	color: #fff;
@@ -2154,6 +2259,7 @@ input:-moz-placeholder {
 	border: 1px solid #f3f3f3;
 	margin: 18px 0;
 	border-radius:2px;
+	background-color: white;
 }
 
 .job-ad-item .ad-meta {
@@ -2336,9 +2442,10 @@ input:-moz-placeholder {
 /* Job List Page */
 
 .job-bg {
-	background-image: url(../images/bg/job-list-bg.jpg);
-	background-repeat: no-repeat;
-	background-size: contain;
+	//background-image: url(../../assets/background.jpg);
+	//background-repeat: no-repeat;
+	//background-size: contain;
+	background-color: #00a651;
 }
 
 .banner-form-full.job-list-form {
@@ -3127,5 +3234,3 @@ input, select, a, .transition,
     font-style: normal;
 
 }
-
-

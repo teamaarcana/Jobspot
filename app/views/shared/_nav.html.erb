@@ -1,7 +1,7 @@
 <!-- header -->
 <header id="header" class="clearfix">
 	<!-- navbar -->
-	<nav class="navbar navbar-default">
+	<nav class="navbar navbar-default navbar-fixed">
 		<div class="container">
 			<!-- navbar-header -->
 			<div class="navbar-header">
@@ -11,16 +11,25 @@
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="index.html"><img class="img-responsive" src="../../assets/favicon.png" alt="Logo" height="45" width="45"></a>
+				<a class="navbar-brand" href="/"><img class="img-responsive" src="../../assets/favicon.png" alt="Logo" height="45" width="45"></a>
 			</div>
 			<!-- /navbar-header -->
 
 			<div class="navbar-left">
 				<div class="collapse navbar-collapse" id="navbar-collapse">
 					<ul class="nav navbar-nav">
-						<li class="active"><%= link_to 'Home',root_path%></li>
-						<li><%= link_to 'Comapnies', recuitor_profiles_path %></li>
-						<li><%= link_to 'Job Details',job_posts_path %></li>
+
+						<li><%= link_to 'Home',root_path%></li>
+
+						<li><%= link_to 'Companies', recuitor_profiles_path %></li>
+						<% if recuitor_signed_in? %>
+							<li><%= link_to 'Posted Jobs', posted_jobs_path %></li>
+							<li><%= link_to "Post Job", new_job_post_path, :class => 'btn btn-primary fa fa-briefcase'%></li>
+						<% elsif seeker_signed_in?%>
+							<li><%= link_to 'Applied Jobs', applied_jobs_path %></li>
+						<% else %>
+							<li><%= link_to 'Job Details',job_posts_path %></li>
+						<% end %>
 					</ul>
 				</div>
 			</div><!-- navbar-left -->
@@ -28,25 +37,35 @@
 			<!-- nav-right -->
 			<div class="nav-right">
 				<ul class="sign-in">
-					<% if seeker_signed_in? %>
 			 		<div class="banner">
+			 		<% if seeker_signed_in? %>
 						<div class="dropdown pull-right">
 							<button class="btn dropdown-toggle" type="button" data-toggle="dropdown">
 							<span class="fa fa-cogs"></span></button>
 							<ul class="dropdown-menu pull-right">
 								<li><%= link_to 'Profile', seeker_profile_path(current_seeker.id), class: "fa fa-user" %></li>
 								<li><%= link_to 'Edit Profile', edit_seeker_profile_path(current_seeker.id), class: "fa fa-cog" %></li>
-								<li><%= link_to 'Logout',destroy_seeker_session_path, method: 'delete', class: "fa fa-sign-out" %></li>
 								<li><%= link_to 'Change Password',edit_seeker_registration_path, class: "fa fa-key" %></li>
+								<li><%= link_to 'Logout',destroy_seeker_session_path, method: 'delete', class: "fa fa-sign-out" %></li>
 							</ul>
 						</div>
+
 					<% elsif recuitor_signed_in? %>
-						<li><%= link_to 'Logout', destroy_seeker_session_path, method: 'delete' %>
+						<div class="dropdown pull-right">
+							<button class="btn dropdown-toggle" type="button" data-toggle="dropdown">
+							<span class="fa fa-cogs"></span></button>
+							<ul class="dropdown-menu pull-right">
+								<li><%= link_to 'Profile', recuitor_profile_path(current_recuitor.id), class: "fa fa-user" %></li>
+								<li><%= link_to 'Edit Profile', edit_recuitor_profile_path(current_recuitor.id), class: "fa fa-cog" %></li>
+								<li><%= link_to 'Change Password',edit_recuitor_registration_path, class: "fa fa-key" %></li>
+								<li><%= link_to 'Logout',destroy_recuitor_session_path, method: 'delete', class: "fa fa-sign-out" %></li>
+							</ul>
+						</div>
 					<% else %>
 						<li><%= link_to 'Sign In',new_seeker_session_path %></li>
 						<li><%= link_to 'Register',new_seeker_registration_path %></li>
 					<% end %>
-				</di>
+				</div>
 				</ul><!-- sign-in -->
 			</div>
 			<!-- nav-right -->

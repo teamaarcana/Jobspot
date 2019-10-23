@@ -1,6 +1,20 @@
 class RecuitorProfilesController < ApplicationController
  before_action :set_recuitor_profile, only: [:show, :edit, :update, :destroy]
  before_action :is_owner?, only: [:edit, :update, :destroy]
+ before_action :authenticate_recuitor!, only: [:edit, :update, :destroy,:new,:create]
+
+  def index
+    @recuitor_profiles = RecuitorProfile.order("created_at DESC").paginate(:page => params[:page], :per_page => 10)
+  end
+
+  def posted_jobs
+    @job_posts =  current_recuitor.job_posts
+  end
+
+  def applied_seeker
+    @job_post = current_recuitor.job_posts.find(params[:id])
+    @applied_seeker = @job_post.apply_jobs
+  end
 
   def show
   end
@@ -38,7 +52,7 @@ class RecuitorProfilesController < ApplicationController
 
   private
   def recuitor_profile_params
-    params.require(:recuitor_profile).permit(:company_name,:contact_no,:address,:pan_no,:description,:recuitor_id)
+    params.require(:recuitor_profile).permit(:company_name,:contact_no,:photo,:address,:pan_no,:description,:recuitor_id,:industry,:website,:email)
   end
 
   def set_recuitor_profile

@@ -1,8 +1,3 @@
-<p id="notice"><%= notice %></p>
-
-
-
-
 <section class=" job-bg page  ad-profile-page">
   <div class="container">
     <div class="breadcrumb-section">
@@ -14,24 +9,24 @@
     </div><!-- breadcrumb-section -->
 
     <div class="job-profile section">
-      <!-- <div class="user-profile">
-        <div class="user-images">
-          <img src="images/user.jpg" alt="User Images" class="img-responsive">
-        </div>
-        <div class="user">
-          <h2>Hello, <a href="#"><%= @seeker_profile.first_name %></a></h2>
+      <div class="user-profile pull-left">
+        <div class="user-images pull-left">
+          <% if @seeker_profile.photo.present? %>
+            <%= image_tag @seeker_profile.photo, class: "img-responsive1", alt: "User Images"  %>
+          <% end %>
         </div>
 
-        <div class="favorites-user">
-          <div class="my-ads">
-            <a href="applied-job.html">29<small>Apply Job</small></a>
+        <% if seeker_signed_in? %>
+          <div class="user">
+            <h2>Hello,<%= @seeker_profile.first_name %>!</h2>
           </div>
-          <div class="favorites">
-            <a href="bookmark.html">18<small>Favorites</small></a>
-          </div>
-        </div>
+          <% if @seeker_profile.attachment.url.present? %>
+            <div class="downloadCV">
+              <%= link_to "Download CV", @seeker_profile.attachment.url, target: "_blank", :class => 'btn btn-success' %>
+            </div>
+          <% end %>
+        <% end %>
       </div><!-- user-profile -->
-
     </div><!-- ad-profile -->
 
     <div class="resume-content">
@@ -42,10 +37,34 @@
         <div class="profile-info">
             <h1>Full Name:- <%= @seeker_profile.first_name %> <%= @seeker_profile.last_name %></h1>
             <address>
-                <p>Address: <%= @seeker_profile.perm_address %> <br> Phone:<%= @seeker_profile.phone_no %><br> </p>
+                <p>Address: <%= @seeker_profile.perm_address %> <br><br> Phone:<%= @seeker_profile.phone_no %><br> </p>
             </address>
+            <email>
+              Email:- <%= @seeker_profile.seeker.email %>
+            </email>
         </div>
       </div><!-- profile -->
+
+      <div class="personal-deatils section">
+          <div class="icons">
+              <i class="fa fa-user-secret" aria-hidden="true"></i>
+          </div>
+          <div class="personal-info">
+            <h3>Personal Details</h3>
+              <ul class="address">
+                  <li><h5>Full Name </h5> <span>:</span><%= @seeker_profile.first_name %> <%= @seeker_profile.last_name %></li>
+
+                  <li><h5>Date of Birth </h5> <span>:</span><%= @seeker_profile.dob %></li>
+                  <li><h5>Permanent Address </h5> <span>:</span><%= @seeker_profile.perm_address %></li>
+                  <li><h5>Temporary Address </h5> <span>:</span><%= @seeker_profile.temp_address %></li>
+                  <li><h5>Nationality </h5> <span>:</span><%= @seeker_profile.nationality %></li>
+                  <li><h5>Sex </h5> <span>:</span><%= @seeker_profile.sex %></li>
+                  <li><h5>Preffered Job location </h5> <span>:</span><%= @seeker_profile.prefered_loc %></li>
+                  <li><h5>Job Experience(years) </h5> <span>:</span><%= @seeker_profile.experience %></li>
+
+              </ul>
+          </div>
+      </div><!-- personal-deatils -->
 
       <div class="educational-background section">
         <div class="icons">
@@ -59,7 +78,7 @@
                 <h4><%= f.education.eduName %></h4>
                 <ul>
                   <li>Passed Year: <span><%= f.year %></span> </li>
-                  <li>Collge/School <span><%= f.colzname %></span></li>
+                  <li>College/School: <span><%= f.colzname %></span></li>
 
                 </ul>
               </li>
@@ -68,27 +87,30 @@
         </div><!-- educational-background -->
 
 
-      <div class="icons">
-          <i class="fa fa-graduation-cap" aria-hidden="true"></i>
-      </div>
-      <div class="educational-info">
-        <h3>Category</h3>
-        <h3><%= @seeker_profile.seeker_category.category.name %></h3>
-      </div>
-</br>
-      <div class="icons">
-          <i class="fa fa-graduation-cap" aria-hidden="true"></i>
-      </div>
-      <div class="educational-info">
-        <h3>Skills</h3>
-        <ul>
-          <% @seeker_profile.seeker_category.skills.each do |f| %>
-            <h3><%= f.name %> <h3>
-          <% end %>
-        </ul> 
 
-    </div><!-- educational-background -->
-</br>
+
+      <div class="icons">
+          <i class="fa fa-graduation-cap" aria-hidden="true"></i>
+      </div>
+        <div class="educational-info">
+          <h3>Category</h3>
+            <% if @seeker_profile.seeker_categories.present? %>
+              <%= @seeker_profile.seeker_categories.first.category.name %>
+            <% end %>
+        </div>
+        </br>
+        <div class="icons">
+            <i class="fa fa-graduation-cap" aria-hidden="true"></i>
+        </div>
+        <div class="educational-info">
+          <h3>Skills</h3>
+          <% if @seeker_profile.seeker_skills.present? %>
+            <% @seeker_profile.seeker_skills.each do |f| %>
+            <h5><%= f.skill.name %></h5>
+            <% end %>
+          <% end %>
+        </div><!-- educational-background -->
+      </div>
 
       <div class="special-qualification: section">
         <div class="icons">
@@ -101,26 +123,6 @@
         </div>
       </div><!-- educational-background -->
 
-      <div class="personal-deatils section">
-          <div class="icons">
-              <i class="fa fa-user-secret" aria-hidden="true"></i>
-          </div>
-          <div class="personal-info">
-            <h3>Personal Deatils</h3>
-              <ul class="address">
-                  <li><h5>Full Name </h5> <span>:</span><%= @seeker_profile.first_name %> <%= @seeker_profile.last_name %></li>
-
-                  <li><h5>Date of Birth </h5> <span>:</span><%= @seeker_profile.dob %></li>
-                  <li><h5>Permanent Address </h5> <span>:</span><%= @seeker_profile.perm_address %></li>
-                  <li><h5>Temporary Address </h5> <span>:</span><%= @seeker_profile.temp_address %></li>
-                  <li><h5>Nationality </h5> <span>:</span><%= @seeker_profile.nationality %></li>
-                  <li><h5>Sex </h5> <span>:</span><%= @seeker_profile.sex %></li>
-                  <li><h5>Preffered Job location </h5> <span>:</span><%= @seeker_profile.prefered_loc %></li>
-                  <li><h5>Job Experience </h5> <span>:</span><%= @seeker_profile.experience %></li>
-
-              </ul>
-          </div>
-      </div><!-- personal-deatils -->
 
       <div class="declaration section">
             <div class="icons">
@@ -131,12 +133,11 @@
               <p><%= raw @seeker_profile.description %></p>
             </div>
       </div><!-- career-objective -->
-      <div class="buttons">
-        <%= link_to 'Update Profile', edit_seeker_profile_path(@seeker_profile),class: "btn btn-info" %>
-      </div>
       <!-- <div class="download-button resume">
         <a href="#" class="btn">Download Resume as doc</a>
       </div> -->
     </div><!-- resume-content -->
+
+
   </div><!-- container -->
 </section><!-- ad-profile-page -->
