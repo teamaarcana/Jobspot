@@ -20,7 +20,7 @@ gem 'ckeditor'
 gem 'faker'
 gem 'pg_search'
 # Use Puma as the app server
-gem 'puma', '~> 3.7'
+gem 'puma', '~> 3.12'
 gem 'whenever', require: false
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
